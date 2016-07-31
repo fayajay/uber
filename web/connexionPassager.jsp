@@ -11,9 +11,6 @@
         <h1>Connexion Passager</h1>
         
             <a href="homePage.jsp">Home Page</a>
-            
-
-                
             <a href="inscription_passager">Inscription</a>
         
             <form method="POST">

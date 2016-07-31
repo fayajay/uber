@@ -11,9 +11,6 @@
         <h1>Connexion Conducteur</h1>
         
         <a href="homePage.jsp">Home Page</a>
-        
-
-            
         <a href="inscription_conducteur">Inscription</a>
         
         
