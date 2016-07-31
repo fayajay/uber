@@ -18,15 +18,15 @@
         Instructions : - écouter "Svinkels - Bricolage" en lisant le js
                        - obligatoirement(je crois) passer par un objet position comme suit : {lat: x, lng: y} pour les fonctions
         
-        A faire : - un vrai fichier js
+        A faire : - un vrai fichier js + nettoyage/opti
                   - un fichier css pour resizer la map
-                  - la gestion des marqueurs
+                  - la gestion des marqueurs comme il faut
                   - tout
         -->
 
         <h1>MAP</h1>
 
-        <p> LA MAP DOIT APPARAITRE SUR CETTE PAGE PAR EXEMPLE </p>
+        <p> LA MAP DOIT APPARAITRE SUR CETTE PAGE PAR EXEMPLE ET ELLE LE FAIT EN PLUS !</p>
         <div id="map"></div>
         <script type="text/javascript">
 
@@ -51,9 +51,7 @@
 
                 //géolocalisation et ajustement de la map
                 var pos = navigator.geolocation.getCurrentPosition(success, error, options);
-
-
-
+                
             }
 
             function success(pos) {
@@ -73,28 +71,26 @@
                 var marqueur = new google.maps.Marker({
                     position: maPosition,
                     map: map,
+                    draggable: true,
                     title: 'Ma position'
                 });
+                marqueur.addListener('dragend', actualiserCoords);
+
 
                 console.log('Your current position is:');
                 console.log('Latitude : ' + crd.latitude);
                 console.log('Longitude: ' + crd.longitude);
                 console.log('More or less ' + crd.accuracy + ' meters.');
-            }
-            ;
+            }            
 
             function error(err) {
                 console.warn('ERROR(' + err.code + '): ' + err.message);
+            }        
+            
+            function actualiserCoords(){
+                console.log("Votre nouvelle position est : tadaaam");
             }
-            ;
 
-            function getLongitude() {
-                return pos.coords.longitude;
-            }
-
-            function getLatitude() {
-                return pos.coords.latitude;
-            }
 
         </script>
         <script async defer
