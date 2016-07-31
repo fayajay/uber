@@ -11,12 +11,14 @@
         <h1>Connexion Passager</h1>
         
             <a href="homePage.jsp">Home Page</a>
+            
             <c:if test="${utilConnecte.login==null}">
                 <a class="menu" href="connexion_passager">Connexion</a>
             </c:if>
             <c:if test="${utilConnecte.login!=null}">
                 <a class="menu" href="deconnexion">Déconnexion</a>
             </c:if>
+                
             <a href="inscriptionPassager.jsp">Inscription</a>
         
             <form method="POST">
