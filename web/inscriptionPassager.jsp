@@ -14,6 +14,8 @@
     <body>
         <h1>Inscription Passager</h1>
         
+            <a href="homePage.jsp">Home Page</a>
+        
             <form method="POST">
                 Identifiant : <input type="text" name="login"/><br/>
                 Mot de Passe : <input type="password" name="mdp"/><br/>

@@ -8,23 +8,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Connexion Passager</h1>
+        <h1>MAP</h1>
         
-            <a href="homePage.jsp">Home Page</a>
             <c:if test="${utilConnecte.login==null}">
                 <a class="menu" href="connexion_passager">Connexion</a>
             </c:if>
             <c:if test="${utilConnecte.login!=null}">
                 <a class="menu" href="deconnexion">Déconnexion</a>
             </c:if>
-            <a href="inscriptionPassager.jsp">Inscription</a>
-        
-            <form method="POST">
-                Identifiant : <input type="text" name="login"/>
-                Mot de Passe : <input type="password" name="mdp"/><br/>
-
-                <input type="submit" value="connexion"/>
-                <input type="reset" value="annuler"/>
-            </form>
     </body>
 </html>

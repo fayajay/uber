@@ -1,8 +1,3 @@
-<%-- 
-    Document   : homePage
-    Created on : 28 juil. 2016, 15:16:19
-    Author     : kellyleclerc
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
