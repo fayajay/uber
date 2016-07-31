@@ -20,9 +20,9 @@ public class PassagerService {
         new PassagerDAO().enregistrerPassager(p);
     }
     
-    public Passager connexion(String login, String mdp) {
+    public Passager connexion(String loginPassager, String mdpPassager) {
         PassagerDAO dao = new PassagerDAO();
 
-        return dao.connexion(login, mdp);
+        return dao.connexion(loginPassager, mdpPassager);
     }
 }

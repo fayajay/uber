@@ -25,10 +25,10 @@ public class InscriptionPassagerServlet extends HttpServlet {
         
         Passager p = new Passager();
         
-        p.setLoginPassager(req.getParameter("login"));
-        p.setMdpPassager(req.getParameter("mdp"));
-        p.setMailPassager(req.getParameter("email"));
-        p.setTelPassager(req.getParameter("tel"));
+        p.setLoginPassager(req.getParameter("loginPassager"));
+        p.setMdpPassager(req.getParameter("mdpPassager"));
+        p.setMailPassager(req.getParameter("emailPassager"));
+        p.setTelPassager(req.getParameter("telPassager"));
         
         PassagerService ps = new PassagerService();
         

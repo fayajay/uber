@@ -25,10 +25,10 @@ public class ConnexionPassagerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        String login = req.getParameter("login");
-        String mdp = req.getParameter("mdp");
+        String loginPassager = req.getParameter("loginPassager");
+        String mdpPassager = req.getParameter("mdpPassager");
         
-        Passager p = new PassagerService().connexion(login, mdp);
+        Passager p = new PassagerService().connexion(loginPassager, mdpPassager);
         
         // je suis logué correctement = session
         req.getSession().setAttribute("utilConnecte", p);

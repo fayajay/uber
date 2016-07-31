@@ -26,14 +26,14 @@ public class PassagerDAO {
     em.getTransaction().commit();
     } 
     
-    public Passager connexion(String login, String mdp) {
+    public Passager connexion(String loginPassager, String mdpPassager) {
 
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
 
-        Query query = em.createQuery("SELECT p FROM Passager p WHERE p.login=:monLogin AND p.mdp=:monMdp");
+        Query query = em.createQuery("SELECT p FROM Passager p WHERE p.loginPassager=:monLogin AND p.mdpPassager=:monMdp");
 
-        query.setParameter("monLogin", login);
-        query.setParameter("monMdp", mdp);
+        query.setParameter("monLogin", loginPassager);
+        query.setParameter("monMdp", mdpPassager);
 
         return (Passager) query.getSingleResult();
 

@@ -26,14 +26,14 @@ public class ConducteurDAO {
     em.getTransaction().commit();
     }
     
-    public Conducteur connexion(String login, String mdp) {
+    public Conducteur connexion(String loginConducteur, String mdpConducteur) {
 
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
 
-        Query query = em.createQuery("SELECT c FROM Conducteur u WHERE c.login=:monLogin AND c.mdp=:monMdp");
+        Query query = em.createQuery("SELECT c FROM Conducteur c WHERE c.loginConducteur=:monLogin AND c.mdpConducteur=:monMdp");
 
-        query.setParameter("monLogin", login);
-        query.setParameter("monMdp", mdp);
+        query.setParameter("monLogin", loginConducteur);
+        query.setParameter("monMdp", mdpConducteur);
 
         return (Conducteur) query.getSingleResult();
 

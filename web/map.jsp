@@ -5,16 +5,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Map</title>
     </head>
     <body>
         <h1>MAP</h1>
         
-            <c:if test="${utilConnecte.login==null}">
-                <a class="menu" href="connexion_passager">Connexion</a>
-            </c:if>
-            <c:if test="${utilConnecte.login!=null}">
-                <a class="menu" href="deconnexion">Déconnexion</a>
-            </c:if>
+        <p> LA MAP DOIT APPARAITRE SUR CETTE PAGE PAR EXEMPLE </p>
     </body>
 </html>

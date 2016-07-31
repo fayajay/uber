@@ -5,26 +5,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Connexion Conducteur</title>
     </head>
     <body>
         <h1>Connexion Conducteur</h1>
         
         <a href="homePage.jsp">Home Page</a>
         
-        <c:if test="${utilConnecte.login==null}">
-            <a class="menu" href="connexion_conducteur">Connexion</a>
-        </c:if>
-        <c:if test="${utilConnecte.login!=null}">
-            <a class="menu" href="deconnexion">Déconnexion</a>
-        </c:if>
+
             
-        <a href="inscriptionConducteur.jsp">Inscription</a>
+        <a href="inscription_conducteur">Inscription</a>
         
         
             <form method="POST">
-                Identifiant : <input type="text" name="login"/>
-                Mot de Passe : <input type="password" name="mdp"/><br/>
+                Identifiant : <input type="text" name="loginConducteur"/>
+                Mot de Passe : <input type="password" name="mdpConducteur"/><br/>
 
                 <input type="submit" value="connexion"/>
                 <input type="reset" value="annuler"/>

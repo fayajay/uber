@@ -4,13 +4,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Home Page</title>
     </head>
     <body>
         <h1>Bienvenue</h1>
         
-        <a href="connexionConducteur.jsp">Conducteur</a>
-        <a href="connexionPassager.jsp">Passager</a>
+        <a href="connexion_conducteur">Conducteur</a>
+        <a href="connexion_passager">Passager</a>
         
     </body>
 </html>

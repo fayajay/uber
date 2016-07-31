@@ -5,25 +5,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Connexion Passager</title>
     </head>
     <body>
         <h1>Connexion Passager</h1>
         
             <a href="homePage.jsp">Home Page</a>
             
-            <c:if test="${utilConnecte.login==null}">
-                <a class="menu" href="connexion_passager">Connexion</a>
-            </c:if>
-            <c:if test="${utilConnecte.login!=null}">
-                <a class="menu" href="deconnexion">Déconnexion</a>
-            </c:if>
+
                 
-            <a href="inscriptionPassager.jsp">Inscription</a>
+            <a href="inscription_passager">Inscription</a>
         
             <form method="POST">
-                Identifiant : <input type="text" name="login"/>
-                Mot de Passe : <input type="password" name="mdp"/><br/>
+                Identifiant : <input type="text" name="loginPassager"/>
+                Mot de Passe : <input type="password" name="mdpPassager"/><br/>
 
                 <input type="submit" value="connexion"/>
                 <input type="reset" value="annuler"/>

@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Inscription Passager</title>
     </head>
     <body>
         <h1>Inscription Conducteur</h1>
@@ -12,11 +12,11 @@
             <a href="homePage.jsp">Home Page</a>
         
             <form method="POST">
-                Identifiant : <input type="text" name="login"/><br/>
-                Mot de Passe : <input type="password" name="mdp"/><br/>
-                Email : <input type="text" name="email"/><br/>
-                Tel : <input type="text" name="tel"/></br>
-                Immatriculation : <input type="text" name="immat"/></br>
+                Identifiant : <input type="text" name="loginConducteur"/><br/>
+                Mot de Passe : <input type="password" name="mdpConducteur"/><br/>
+                Email : <input type="text" name="emailConducteur"/><br/>
+                Tel : <input type="text" name="telConducteur"/></br>
+                Immatriculation : <input type="text" name="immatConducteur"/></br>
                 <input type="submit" value="inscription"/>
                 <input type="reset" value="annuler"/>
             </form>

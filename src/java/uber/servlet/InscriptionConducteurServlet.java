@@ -24,11 +24,11 @@ public class InscriptionConducteurServlet extends HttpServlet {
         
         Conducteur c = new Conducteur();
         
-        c.setLoginConducteur(req.getParameter("login"));
-        c.setMdpConducteur(req.getParameter("mdp"));
-        c.setMailConducteur(req.getParameter("email"));
-        c.setTelConducteur(req.getParameter("tel"));
-        c.setImmatriculation(req.getParameter("immat"));
+        c.setLoginConducteur(req.getParameter("loginConducteur"));
+        c.setMdpConducteur(req.getParameter("mdpConducteur"));
+        c.setMailConducteur(req.getParameter("emailConducteur"));
+        c.setTelConducteur(req.getParameter("telConducteur"));
+        c.setImmatriculation(req.getParameter("immatConducteur"));
         
         ConducteurService cs = new ConducteurService();
         

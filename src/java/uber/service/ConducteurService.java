@@ -20,10 +20,10 @@ public class ConducteurService {
         new ConducteurDAO().enregistrerConducteur(c);
     }
 
-    public Conducteur connexion(String login, String mdp) {
+    public Conducteur connexion(String loginConducteur, String mdpConducteur) {
                 ConducteurDAO dao = new ConducteurDAO();
 
-        return dao.connexion(login, mdp);
+        return dao.connexion(loginConducteur, mdpConducteur);
     }
     
 }
