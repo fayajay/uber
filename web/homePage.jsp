@@ -11,6 +11,7 @@
         
         <a href="connexion_conducteur">Conducteur</a>
         <a href="connexion_passager">Passager</a>
+        <a href="map">Map(test)</a>
         
     </body>
 </html>
