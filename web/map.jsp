@@ -21,6 +21,7 @@
         A faire : - un vrai fichier js + nettoyage/opti
                   - un fichier css pour resizer la map
                   - la gestion des marqueurs comme il faut
+                  - actualiser la position du marqueur a chaque déplacement
                   - tout
         -->
 
@@ -51,7 +52,15 @@
 
                 //géolocalisation et ajustement de la map
                 var pos = navigator.geolocation.getCurrentPosition(success, error, options);
-                
+
+                //bouton de centrage
+                var centerControlDiv = document.createElement('div');
+                btCentrage(centerControlDiv, map, maPosition);
+
+                centerControlDiv.index = 1;
+                map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+
+
             }
 
             function success(pos) {
@@ -65,7 +74,7 @@
 
 
                 map.setCenter(maPosition);
-                map.setZoom(13);
+                map.setZoom(16);
 
                 //placement du marqueur
                 var marqueur = new google.maps.Marker({
@@ -81,14 +90,48 @@
                 console.log('Latitude : ' + crd.latitude);
                 console.log('Longitude: ' + crd.longitude);
                 console.log('More or less ' + crd.accuracy + ' meters.');
-            }            
+            }
 
             function error(err) {
                 console.warn('ERROR(' + err.code + '): ' + err.message);
-            }        
-            
-            function actualiserCoords(){
+            }
+
+            function actualiserCoords() {
                 console.log("Votre nouvelle position est : tadaaam");
+            }
+
+            function btCentrage(controlDiv, map, pos) {
+                // Set CSS for the control border.
+                var controlUI = document.createElement('div');
+                controlUI.style.backgroundColor = '#fff';
+                controlUI.style.border = '2px solid #fff';
+                controlUI.style.borderRadius = '3px';
+                controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+                controlUI.style.cursor = 'pointer';
+                controlUI.style.marginBottom = '22px';
+                controlUI.style.textAlign = 'center';
+                controlUI.title = 'Click to recenter the map';
+
+                controlDiv.appendChild(controlUI);
+
+                // Set CSS for the control interior.
+                var controlText = document.createElement('div');
+                controlText.style.color = 'rgb(25,25,25)';
+                controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+                controlText.style.fontSize = '16px';
+                controlText.style.lineHeight = '38px';
+                controlText.style.paddingLeft = '5px';
+                controlText.style.paddingRight = '5px';
+                controlText.innerHTML = 'Ma position';
+                controlUI.appendChild(controlText);
+
+
+                // centrer quand on clique
+                controlUI.addEventListener('click', function () {
+                    map.setCenter(pos);
+                });
+
+
             }
 
 
