@@ -22,6 +22,7 @@
                   - un fichier css pour resizer la map
                   - la gestion des marqueurs comme il faut
                   - actualiser la position du marqueur a chaque déplacement
+                  - completer la fenetre du marqueur
                   - tout
         -->
 
@@ -61,6 +62,9 @@
                 map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
 
+
+
+
             }
 
             function success(pos) {
@@ -84,6 +88,20 @@
                     title: 'Ma position'
                 });
                 marqueur.addListener('dragend', actualiserCoords);
+
+                //fenetre info
+
+                //fenetre info
+                var infowindow = new google.maps.InfoWindow({
+                    content: maPosition.toString()
+                });
+
+
+                marqueur.addListener('click', function () {
+                    infowindow.open(map, marqueur);
+                    console.log(maPosition)
+                });
+
 
 
                 console.log('Your current position is:');
