@@ -17,7 +17,7 @@ public class MapServlet extends HttpServlet {
 
         req.setAttribute("lchauffeur", new ConducteurService().lister());
         
-        req.setAttribute("chauffeur1", new ConducteurService().rechercherConducteurParId(1));
+        req.setAttribute("chauffeur1", new ConducteurService().rechercherConducteurParId(2));
 
         req.getRequestDispatcher("map.jsp").forward(req, resp);
     }

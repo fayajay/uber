@@ -65,7 +65,18 @@
                 map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
                 chauffeurBidon();
+                //afficherChauffeurs();
             }
+
+            function afficherChauffeurs() {
+                console.log("afficher chauffeurs");
+                for (var i = 0; i < "${lchauffeur}"; i++) {
+                    console.log(i);
+                    i++;
+
+                }
+            }
+            ;
 
             function chauffeurBidon() {
                 //récupération du chauffeur depuis le servlet
