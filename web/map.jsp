@@ -64,7 +64,7 @@
                 centerControlDiv.index = 1;
                 map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
-                chauffeurBidon();
+                //chauffeurBidon();
                 //afficherChauffeurs();
             }
 
