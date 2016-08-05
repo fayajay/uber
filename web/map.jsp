@@ -15,6 +15,8 @@
         <!--
         Toi qui lis ceci abandonnes tout espoir de propreté du code. Oublie les standards du web. Oublie l'élegance.
         
+        JS Closure : p120
+        
         Instructions : - écouter "Svinkels - Bricolage" en lisant le js
                        - obligatoirement(je crois) passer par un objet position comme suit : {lat: x, lng: y} pour les fonctions
         
@@ -29,6 +31,7 @@
         <h1>MAP</h1>
 
         <p> LA MAP DOIT APPARAITRE SUR CETTE PAGE PAR EXEMPLE ET ELLE LE FAIT EN PLUS !</p>
+        <a href="homePage.jsp">Accueil</a>
         <div id="map"></div>
         <script type="text/javascript">
 
@@ -60,11 +63,37 @@
 
                 centerControlDiv.index = 1;
                 map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+                
+                chauffeurBidon();
+            }
+            
+            function chauffeurBidon(){
+                //récupération du chauffeur depuis le servlet
+                var ch = "${chauffeur1}";
+                
+                var posch = {
+                lat: 50.6,
+                lng: 3.5
+            };
+            
+            console.log(ch.loginConducteur);
+                
+                //placement du marqueur
+                var marqueurChauffeur = new google.maps.Marker({
+                    position: posch,
+                    map: map,
+                    title: 'Chauffeur 1'
+                });
+
+                //fenetre info
+                var infowindow = new google.maps.InfoWindow({
+                    content: ch.immatriculation
+                });
 
 
-
-
-
+                marqueurChauffeur.addListener('click', function () {
+                    infowindow.open(map, marqueurChauffeur);                    
+                });
             }
 
             function success(pos) {
@@ -90,16 +119,15 @@
                 marqueur.addListener('dragend', actualiserCoords);
 
                 //fenetre info
-
-                //fenetre info
                 var infowindow = new google.maps.InfoWindow({
-                    content: maPosition.toString()
+                    content: maPosition.lat + " " + maPosition.lng
                 });
 
 
                 marqueur.addListener('click', function () {
                     infowindow.open(map, marqueur);
-                    console.log(maPosition)
+                    console.log(maPosition);
+                    
                 });
 
 
@@ -107,7 +135,7 @@
                 console.log('Your current position is:');
                 console.log('Latitude : ' + crd.latitude);
                 console.log('Longitude: ' + crd.longitude);
-                console.log('More or less ' + crd.accuracy + ' meters.');
+                console.log('More or less ' + crd.accuracy + ' meters.');                
             }
 
             function error(err) {
@@ -115,7 +143,7 @@
             }
 
             function actualiserCoords() {
-                console.log("Votre nouvelle position est : tadaaam");
+                console.log("Votre nouvelle position est : " + maPosition.lat + " " + maPosition.lng);
             }
 
             function btCentrage(controlDiv, map, pos) {

@@ -20,6 +20,20 @@ public class Conducteur implements Serializable {
     private String mailConducteur;
     private String telConducteur;
     private String immatriculation;
+    private int nbPlaces;
+    private TypeVehicule typeVehicule;
+    private float latitude;
+    private float longitude;
+    
+    public enum TypeVehicule{
+        VOITURE,
+        CAMION,
+        DEUX_ROUES_ECOLO,
+        DEUX_ROUES_MOTORISE,
+        CADDIE,
+        PONEY,
+        JETPACK;
+    }
     
     // GETTER & SETTER
 
@@ -70,6 +84,40 @@ public class Conducteur implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public int getNbPlaces() {
+        return nbPlaces;
+    }
+
+    public void setNbPlaces(int nbPlaces) {
+        this.nbPlaces = nbPlaces;
+    }
+
+    public TypeVehicule getTypeVehicule() {
+        return typeVehicule;
+    }
+
+    public void setTypeVehicule(TypeVehicule typeVehicule) {
+        this.typeVehicule = typeVehicule;
+    }
+
+    public float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
+    }
+    
+    
     
     //------------------------------------------------
     
