@@ -15,9 +15,9 @@ public class MapServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setAttribute("lchauffeur", new ConducteurService().lister());
+        //req.setAttribute("lchauffeur", new ConducteurService().lister());
         
-        req.setAttribute("chauffeur1", new ConducteurService().rechercherConducteurParId(2));
+        //req.setAttribute("chauffeur1", new ConducteurService().rechercherConducteurParId(2));
 
         req.getRequestDispatcher("map.jsp").forward(req, resp);
     }
