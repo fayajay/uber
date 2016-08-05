@@ -63,21 +63,31 @@
 
                 centerControlDiv.index = 1;
                 map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
-                
+
                 chauffeurBidon();
             }
-            
-            function chauffeurBidon(){
+
+            function chauffeurBidon() {
                 //récupération du chauffeur depuis le servlet
-                var ch = "${chauffeur1}";
-                
+                var ch = {
+                    login: "${chauffeur1.loginConducteur}",
+                    mail: "${chauffeur1.mailConducteur}",
+                    tel: "${chauffeur1.telConducteur}",
+                    immatriculation: "${chauffeur1.immatriculation}",
+                    nbPlaces: ${chauffeur1.nbPlaces},
+                    type: "${chauffeur1.typeVehicule}",
+                    lat: ${chauffeur1.latitude},
+                    lng: ${chauffeur1.longitude}
+                };
+
+
                 var posch = {
-                lat: 50.6,
-                lng: 3.5
-            };
-            
-            console.log(ch.loginConducteur);
-                
+                    lat: ch.lat,
+                    lng: ch.lng
+                };
+
+                console.log(ch);
+
                 //placement du marqueur
                 var marqueurChauffeur = new google.maps.Marker({
                     position: posch,
@@ -87,12 +97,12 @@
 
                 //fenetre info
                 var infowindow = new google.maps.InfoWindow({
-                    content: ch.immatriculation
+                    content: ch.login + "\n" + ch.type + "\n" + ch.nbPlaces
                 });
 
 
                 marqueurChauffeur.addListener('click', function () {
-                    infowindow.open(map, marqueurChauffeur);                    
+                    infowindow.open(map, marqueurChauffeur);
                 });
             }
 
@@ -127,7 +137,7 @@
                 marqueur.addListener('click', function () {
                     infowindow.open(map, marqueur);
                     console.log(maPosition);
-                    
+
                 });
 
 
@@ -135,7 +145,7 @@
                 console.log('Your current position is:');
                 console.log('Latitude : ' + crd.latitude);
                 console.log('Longitude: ' + crd.longitude);
-                console.log('More or less ' + crd.accuracy + ' meters.');                
+                console.log('More or less ' + crd.accuracy + ' meters.');
             }
 
             function error(err) {
@@ -175,6 +185,7 @@
                 // centrer quand on clique
                 controlUI.addEventListener('click', function () {
                     map.setCenter(pos);
+                    map.setZoom(16);
                 });
 
 

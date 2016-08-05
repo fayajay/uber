@@ -1,4 +1,3 @@
-
 package uber.entity;
 
 import java.io.Serializable;
@@ -14,18 +13,18 @@ public class Conducteur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     private String loginConducteur;
     private String mdpConducteur;
     private String mailConducteur;
     private String telConducteur;
     private String immatriculation;
     private int nbPlaces;
-    private TypeVehicule typeVehicule;
+    public TypeVehicule typeVehicule;
     private float latitude;
     private float longitude;
-    
-    public enum TypeVehicule{
+
+    public enum TypeVehicule {
         VOITURE,
         CAMION,
         DEUX_ROUES_ECOLO,
@@ -34,9 +33,8 @@ public class Conducteur implements Serializable {
         PONEY,
         JETPACK;
     }
-    
-    // GETTER & SETTER
 
+    // GETTER & SETTER
     public String getLoginConducteur() {
         return loginConducteur;
     }
@@ -76,7 +74,7 @@ public class Conducteur implements Serializable {
     public void setImmatriculation(String immatriculation) {
         this.immatriculation = immatriculation;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -116,11 +114,8 @@ public class Conducteur implements Serializable {
     public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
-    
-    
-    
+
     //------------------------------------------------
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -145,5 +140,5 @@ public class Conducteur implements Serializable {
     public String toString() {
         return "uber.entity.Passager[ id=" + id + " ]";
     }
-    
+
 }
