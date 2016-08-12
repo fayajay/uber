@@ -138,7 +138,7 @@ public class Conducteur implements Serializable {
 
     @Override
     public String toString() {
-        return "uber.entity.Passager[ id=" + id + " ]";
+        return "uber.entity.Passager[ id=" + id + " login=" + loginConducteur + " ]";
     }
 
 }

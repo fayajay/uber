@@ -15,20 +15,35 @@
  A faire : - nettoyage/opti
  - un fichier css pour resizer la map
  - la gestion des marqueurs comme il faut
- - actualiser la position du marqueur a chaque déplacement
  - completer la fenetre du marqueur
+ - modifier les marqueurs
  - tout
  */
 
 
- $(document).ready(function () {
-     console.log("jquery me voici");
- }
+$(document).ready(function () {
 
-var map, clatitude, clongitude;
+    $.ajax({
+        method: "POST",
+        url: "map",
+        data: "",
+        dataType: "html",
+        success: function (data) {
+            console.log("données reçues");
+            console.log(data);
+            afficherChauffeurs(data);
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown.toString());
+        }
+    });
+});
+
+var map;
 var maPosition = {
-    lat: clatitude,
-    lng: clongitude
+    lat: "",
+    lng: ""
 };
 var options = {
     enableHighAccuracy: true,
@@ -52,12 +67,9 @@ function initMap() {
     //afficherChauffeurs();
 }
 ;
-function afficherChauffeurs() {
-    console.log("afficher chauffeurs");
-    for (var i = 0; i < "${lchauffeur}"; i++) {
-        console.log(i);
-        i++;
-    }
+function afficherChauffeurs(data) {
+    var test = JSON.parse(data);
+    console.log(test);
 }
 ;
 function chauffeurBidon() {
@@ -94,10 +106,8 @@ function chauffeurBidon() {
 ;
 function success(pos) {
     var crd = pos.coords;
-    clongitude = crd.longitude;
-    clatitude = crd.latitude;
-    maPosition.lat = clatitude;
-    maPosition.lng = clongitude;
+    maPosition.lat = crd.latitude;
+    maPosition.lng = crd.longitude;
     map.setCenter(maPosition);
     map.setZoom(16);
     //placement du marqueur
@@ -107,7 +117,11 @@ function success(pos) {
         draggable: true,
         title: 'Ma position'
     });
-    marqueur.addListener('dragend', actualiserCoords);
+    marqueur.addListener('dragend', function () {
+        maPosition.lat = marqueur.getPosition().lat();
+        maPosition.lng = marqueur.getPosition().lng();
+        console.log("Nouvelle position : " + maPosition.lat + " " + maPosition.lng);
+    });
     //fenetre info
     var infowindow = new google.maps.InfoWindow({
         content: maPosition.lat + " " + maPosition.lng
@@ -126,9 +140,7 @@ function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
 }
 
-function actualiserCoords() {
-    console.log("Votre nouvelle position est : " + maPosition.lat + " " + maPosition.lng);
-}
+
 
 function btCentrage(controlDiv, map, pos) {
 // Set CSS for the control border.
@@ -158,5 +170,7 @@ function btCentrage(controlDiv, map, pos) {
         map.setZoom(16);
     });
 }
+;
+
 
 
