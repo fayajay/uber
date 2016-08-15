@@ -5,21 +5,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Faster+One|Annie+Use+Your+Telescope' rel='stylesheet' type='text/css'>
+        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <title>Connexion Conducteur</title>
     </head>
     <body>
-        <h1>Connexion Conducteur</h1>
-        
-        <a href="homePage.jsp">Home Page</a>
-        <a href="inscription_conducteur">Inscription</a>
-        
-        
+        <h1>Cousin Huber</h1>
+        <h2>Connexion Conducteur</h2>
+        <div class="lien1">
+            <a href="homePage.jsp">Home Page</a>
+            <a class="inscription" href="inscription_conducteur">Inscription</a>
+            <div class="clear"></div>
+        </div>
             <form method="POST">
                 Identifiant : <input type="text" name="loginConducteur"/>
                 Mot de Passe : <input type="password" name="mdpConducteur"/><br/>
 
-                <input type="submit" value="connexion"/>
-                <input type="reset" value="annuler"/>
+                <input class="button_connexion" type="submit" value="connexion"/>
+                <input class="button_reset" type="reset" value="annuler"/>
             </form>    
     </body>
 </html>
