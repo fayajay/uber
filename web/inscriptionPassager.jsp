@@ -11,7 +11,7 @@
     <body>
         <h1>Cousin Huber</h1>
         <h2>Inscription Passager</h2>
-        
+        <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
             <a class="lien1" href="homePage.jsp">Home Page</a>
         
             <form class="form" method="POST">

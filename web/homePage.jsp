@@ -11,10 +11,16 @@
     <body>
         <h1>Cousin Huber</h1>
         <h2>Bienvenue</h2>
+        <blockquote id="slogan_home">
+            "Libérez vos pieds...<br>
+            Libérez vos idées... <br>
+            Laissez nous vous guider...<br> 
+            Nous vous offrons la liberté..."<br>
+        </blockquote>
         <div id="lien">
             <a href="connexion_conducteur">Conducteur</a>
             <a href="connexion_passager">Passager</a>
-            <!--<a href="map">Map(test)</a>-->
+            <a href="map">Map(test)</a>
         </div>
         <div id="image"> 
             <img src="css/images/icon_tracteur.png" width="150px" alt="150px" />

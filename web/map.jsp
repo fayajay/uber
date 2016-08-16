@@ -5,6 +5,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Faster+One|Annie+Use+Your+Telescope' rel='stylesheet' type='text/css'>
+        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <title>Map</title>
         <style type="text/css">
             html, body { height: 100%; margin: 0; padding: 0; }
@@ -13,11 +15,12 @@
     </head>
     <body>
 
-
-        <h1>MAP</h1>
-
-        <p> LA MAP DOIT APPARAITRE SUR CETTE PAGE PAR EXEMPLE ET ELLE LE FAIT EN PLUS !</p>
-        <a href="homePage.jsp">Accueil</a>
+        <h1>Cousin Huber</h1>
+        <h2>MAP</h2>
+        <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
+    
+        <a class="lien1" href="homePage.jsp">Accueil</a>
+        
         <div id="map"></div>
 
 

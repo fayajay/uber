@@ -47,3 +47,14 @@ img {
     font-size: 0.5em;
     border-radius: 25px;
 }
+#map {
+    margin: 1em;
+}
+#slogan_home {
+    text-align: center;
+    font-size: 4em;
+}
+.slogan {
+    text-align: center;
+    font-size: 2em;
+}
