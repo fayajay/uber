@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,22 +13,27 @@
         </style>
     </head>
     <body>
+        <div class="header">
+            <h1>Cousin Huber</h1>
+            <h2>MAP</h2>
+            <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
+        </div>
+        <div class="menu">
+            <div class="lien1">
+                <a href="homePage.jsp">Home Page</a>
+                <a class="inscription" href="prise_en_charge">Prise en Charge(test)</a>
+                <div class="clear"></div>
+            </div>
+        </div> 
+            <div id="map">
+                <script type="text/javascript" src="js/jquery.min.js"></script>
+                <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
-        <h1>Cousin Huber</h1>
-        <h2>MAP</h2>
-        <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
-    
-        <a class="lien1" href="homePage.jsp">Accueil</a>
-        
-        <div id="map"></div>
-
-
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-
-        <script type="text/javascript" async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfugp2TKrikmxteh7sn9bdi1XPZvAFtDA&callback=initMap">
-        </script>
-        <script type="text/javascript" src="js/carte.js"></script>
+                <script type="text/javascript" async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfugp2TKrikmxteh7sn9bdi1XPZvAFtDA&callback=initMap">
+                </script>
+                <script type="text/javascript" src="js/carte.js"></script>
+            </div>
+        <div class="footer"></div>
     </body>
 </html>
