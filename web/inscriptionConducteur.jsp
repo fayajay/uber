@@ -11,7 +11,8 @@
     <body>
         <h1>Cousin Huber</h1>
         <h2>Inscription Conducteur</h2>
-        <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>           <a class="lien1" href="homePage.jsp">Home Page</a>
+        <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>           
+        <a class="lien1" href="homePage.jsp">Home Page</a>
         
             <form method="POST">
                 Identifiant : <input type="text" name="loginConducteur"/><br/>
