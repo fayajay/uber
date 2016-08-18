@@ -1,4 +1,3 @@
-
 package uber.servlet;
 
 import java.io.IOException;
@@ -22,10 +21,10 @@ public class PriseEnChargeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         
-        // inserer ici le code pour récuperer les données envoyez au conducteur
+        // inserer ici le code pour récuperer les données envoyez au conducteur par le passager
         
         
-        resp.sendRedirect("map");
+        resp.sendRedirect("paiement");
     }
 
     
