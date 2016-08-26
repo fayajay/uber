@@ -47,15 +47,23 @@ public class ProfilPassagerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //merge en base 
+        Passager pInit =(Passager) request.getSession().getAttribute("utilConnecteP");
+        
         Passager p = new Passager();
-        p.setLoginPassager(request.getParameter("loginPassager"));
-        p.setMdpPassager(request.getParameter("mdpPassager"));
-        p.setMailPassager(request.getParameter("emailPassager"));
-        p.setTelPassager(request.getParameter("telPassager"));
+        p.setId(pInit.getId());
+        p.setLoginPassager(request.getParameter("login"));
+        p.setMdpPassager(request.getParameter("mdp"));
+        p.setMailPassager(request.getParameter("email"));
+        p.setTelPassager(request.getParameter("tel"));
         
         PassagerService ps = new PassagerService();
         
         ps.modifierProfil(p);
+        
+        //mise a jour de la session
+        request.getSession().setAttribute("utilConnecteP", p);
         
         response.sendRedirect("map");
         
