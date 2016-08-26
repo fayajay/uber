@@ -32,7 +32,6 @@ $(document).ready(function () {
             console.log("données reçues");
             console.log(data);
             afficherChauffeurs(data);
-
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(errorThrown.toString());
@@ -68,8 +67,37 @@ function initMap() {
 }
 ;
 function afficherChauffeurs(data) {
-    var test = JSON.parse(data);
-    console.log(test);
+    var dpars = JSON.parse(data);
+    console.log("données parsées :");
+    console.log(dpars);
+
+    $.each(dpars, function (index, value) {
+        console.log("LOG : " + index + value);
+        console.log(dpars[index].lat.valueOf());
+
+        //placement du marqueur
+
+        var posch = {
+            lat: parseFloat(dpars[index].lat),
+            lng: parseFloat(dpars[index].lng)
+        };
+
+        var marqueurChauffeur = new google.maps.Marker({
+            position: posch,
+            map: map,
+            title: "Nik sa môman n#" + index
+        });
+        //fenetre info
+        var infowindow = new google.maps.InfoWindow({
+            content: dpars[index].nom + "\n" + "\n" + dpars[index].nbPlaces
+        });
+        marqueurChauffeur.addListener('click', function () {
+            infowindow.open(map, marqueurChauffeur);
+        });
+        console.log("fin ajout conducteur");
+
+
+    });
 }
 ;
 function chauffeurBidon() {

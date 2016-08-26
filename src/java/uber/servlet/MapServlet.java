@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,32 +27,64 @@ public class MapServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        PrintWriter out = resp.getWriter();
         List<Conducteur> lconducteur = new ConducteurService().lister();
 
-        //out.print(lconducteur);
+        System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+       // System.out.println(lconducteur);
         //out.print("[");
-        for (Conducteur c : lconducteur) {
-            PrintWriter out = resp.getWriter();
-            JSONObject obj = new JSONObject();
+        //obj.put("tabConducteurs", "[");
 
-            obj.put("nom", c.getLoginConducteur());
+        //obj.putAll((Map)lconducteur);
+        String str = "[";
+
+        for (Conducteur c : lconducteur) {
+            str += "{";
+            //out.print("{");
+            //obj.put("", "{");
+            //JSONObject obj = new JSONObject();
+
+            /*obj.put("nom", c.getLoginConducteur());
             obj.put("immat", c.getImmatriculation());
             obj.put("lat", c.getLatitude());
             obj.put("lng", c.getLongitude());
             obj.put("nbplaces", c.getNbPlaces());
-            obj.put("vehicule", c.getTypeVehicule());
+            obj.put("vehicule", c.getTypeVehicule());*/
+            //*****JSON A LA MAIN *****
+            str += "\"nom\":\"" + c.getLoginConducteur() + "\",";
+            str += "\"immat\":\"" + c.getImmatriculation() + "\",";
+            str += "\"lat\":\"" + c.getLatitude() + "\",";
+            str += "\"lng\":\"" + c.getLongitude() + "\",";
+            str += "\"nbplaces\":\"" + c.getNbPlaces() + "\",";
+            str += "\"vehicule\":\"" + c.getTypeVehicule() + "\"";
 
             //StringWriter out = new StringWriter();
             //obj.writeJSONString(out);
             //out.print(c);
-            System.out.println("**********************************************");
-            System.out.println(obj);
+            //System.out.println("**********************************************");
+            //System.out.println(obj);
 
-            out.print(obj);
-            out.close();
+            //obj.writeJSONString(out);
+            str += "},";
+
+            /*System.out.println("-----------------------------------------------");
+            System.out.println(c.getLoginConducteur());
+            System.out.println("-----------------------------------------------");
+             */
+            //obj.put("", "}");
+            //out.print("}");
         }
+        str = str.substring(0, str.length() - 1);
+        str += "]";
         //out.print("]");
+
+        //obj.put("", "]");
+        //out.print(obj);
+        out.print(str);
+        System.out.println(str);
+
+        //out.print("je te survivrais !");
+        out.close();
 
         //System.out.println(out);
     }
