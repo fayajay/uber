@@ -14,8 +14,6 @@
  
  A faire : - nettoyage/opti
  - un fichier css pour resizer la map
- - la gestion des marqueurs comme il faut
- - completer la fenetre du marqueur
  - modifier les marqueurs
  - tout
  */
@@ -72,30 +70,28 @@ function afficherChauffeurs(data) {
     console.log(dpars);
 
     $.each(dpars, function (index, value) {
-        console.log("LOG : " + index + value);
-        console.log(dpars[index].lat.valueOf());
 
-        //placement du marqueur
-
+        //création de la position du chauffeur
         var posch = {
             lat: parseFloat(dpars[index].lat),
             lng: parseFloat(dpars[index].lng)
         };
-
+        
+        //placement du marqueur
         var marqueurChauffeur = new google.maps.Marker({
             position: posch,
             map: map,
-            title: "Nik sa môman n#" + index
+            title: dpars[index].nom + ""
         });
         //fenetre info
         var infowindow = new google.maps.InfoWindow({
-            content: dpars[index].nom + "\n" + "\n" + dpars[index].nbPlaces
+            content: dpars[index].nom + " " + dpars[index].nbPlaces
         });
+        
+        //évenement : affichage de la fenetre d'info quand on clique sur le marqueur
         marqueurChauffeur.addListener('click', function () {
             infowindow.open(map, marqueurChauffeur);
         });
-        console.log("fin ajout conducteur");
-
 
     });
 }
