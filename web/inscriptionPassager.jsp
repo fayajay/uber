@@ -21,8 +21,8 @@
                 Mot de Passe : <input type="password" name="mdpPassager"/><br/>
                 Email : <input type="text" name="emailPassager"/><br/>
                 Tel : <input type="text" name="telPassager"/></br>
-                <input class="button_connexion" type="submit" value="inscription"/>
-                <input class="button_reset" type="reset" value="annuler"/>
+                <input class="button_connexion" type="submit" value="Inscription"/>
+                <input class="button_reset" type="reset" value="Annuler"/>
             </form>
     </body>
 </html>

@@ -18,13 +18,13 @@
             
             <c:choose>
                 <c:when test="${utilConnecteP.loginPassager!=null}">
-                    <a href="deconnexionPassager">Déconnexion</a>
+                    <a class="right" href="deconnexionPassager">Déconnexion</a>
                 </c:when>
                     <c:otherwise>
                         <a href="#"></a>
                     </c:otherwise>
                 </c:choose> 
-            <a class="inscription" href="map">Map</a>
+            <a class="lienMap" href="map">Map</a>
             <div class="clear"></div>
         </div>
         </div>
@@ -44,8 +44,8 @@
                 Email : <input type="text" name="emailConducteur"/><br/>
                 Tel : <input type="text" name="telConducteur"/></br>
                 
-                <input class="button_connexion" type="submit" value="demande"/>
-                <input class="button_reset" type="reset" value="annuler"/>
+                <input class="button_connexion" type="submit" value="Demande"/>
+                <input class="button_reset" type="reset" value="Annuler"/>
         </form>
     </body>
 </html>

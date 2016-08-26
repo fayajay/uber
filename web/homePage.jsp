@@ -25,7 +25,7 @@
                 </c:when>
                 <c:otherwise>
                     <a href="deconnexionPassager">Déconnexion</a>
-                    <a href="map">Map</a>
+                    <a class="lienMap" href="map">Map</a>
                 </c:otherwise>
             </c:choose>
             <c:choose>

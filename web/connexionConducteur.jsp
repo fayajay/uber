@@ -16,7 +16,7 @@
         <div class="menu">
         <div class="lien1">
             <a href="home">Home Page</a>
-            <a class="inscription" href="inscription_conducteur">Inscription</a>
+            <a class="right" href="inscription_conducteur">Inscription</a>
             <div class="clear"></div>
         </div>
         </div>
@@ -24,8 +24,8 @@
                 Identifiant : <input type="text" name="loginConducteur"/>
                 Mot de Passe : <input type="password" name="mdpConducteur"/><br/>
 
-                <input class="button_connexion" type="submit" value="connexion"/>
-                <input class="button_reset" type="reset" value="annuler"/>
+                <input class="button_connexion" type="submit" value="Connexion"/>
+                <input class="button_reset" type="reset" value="Annuler"/>
             </form>    
     </body>
 </html>

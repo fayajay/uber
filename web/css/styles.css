@@ -25,8 +25,11 @@ h2 {
     font-size: 5em;
     margin: 0.3em;
 }
-.inscription {
+.right {
     float: right;
+}
+.lienMap {
+    text-align: center;
 }
 form {
     text-align: center;

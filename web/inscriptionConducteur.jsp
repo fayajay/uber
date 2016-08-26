@@ -22,8 +22,8 @@
                 Email : <input type="text" name="emailConducteur"/><br/>
                 Tel : <input type="text" name="telConducteur"/></br>
                 Immatriculation : <input type="text" name="immatConducteur"/></br>
-                <input class="button_connexion" type="submit" value="inscription"/>
-                <input class="button_reset" type="reset" value="annuler"/>
+                <input class="button_connexion" type="submit" value="Inscription"/>
+                <input class="button_reset" type="reset" value="Annuler"/>
             </form>
     </body>
 </html>
