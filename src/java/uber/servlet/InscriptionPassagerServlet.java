@@ -30,7 +30,8 @@ public class InscriptionPassagerServlet extends HttpServlet {
         p.setMailPassager(req.getParameter("emailPassager"));
         p.setTelPassager(req.getParameter("telPassager"));
         
-        PassagerService ps = new PassagerService();
+        
+  PassagerService ps = new PassagerService();
         
         ps.enregistrerPassager(p);
         

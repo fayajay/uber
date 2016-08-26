@@ -38,4 +38,12 @@ public class PassagerDAO {
         return (Passager) query.getSingleResult();
 
     }
+
+    public void modifierProfil(Passager p) {
+        EntityManager em =Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.getTransaction().begin();
+        em.merge(p);
+        em.getTransaction().commit();
+       
+    }
 }
