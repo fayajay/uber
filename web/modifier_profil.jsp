@@ -10,11 +10,12 @@
     </head>
     <body>
         <h1>Cousin Huber</h1>
-        <h2>Bienvenue</h2>
+        <h2>Modifier Profil</h2>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         <div class="menu">
         <div class="lien1">
             <a href="home">Home Page</a>
+            <a class="lienMap" href="map">Map</a>
             <c:choose>
                 <c:when test="${utilConnecteP.loginPassager!=null}">
                     <a class="right" href="deconnexionPassager">Déconnexion</a>
@@ -22,24 +23,17 @@
                     <c:otherwise>
                         <a href="#"></a>
                     </c:otherwise>
-                </c:choose>
-            <a class="lienMap" href="map">Map</a>
+                </c:choose>  
             <div class="clear"></div>
         </div>
         </div>
         <form method="POST">
-                Choisissez votre mode de paiement : <select>
-                                                        <option value="CB">CB</option>
-                                                        <option value="VISA">VISA</option>
-                                                        <option value="AMEX">AMERICAN EXPRESS</option>
-                                                        <option value="MASTERCARD">MASTER CARD</option>
-                                                        <option value="PAYPAL">PAYPAL</option>
-                                                        <option value="CASH">CASH</option>
-                                                        <option value="NATURE">NATURE</option>
-                                                        <option value="TROC">TROC</option>
-                                                    </select><br>
-                <input class="button_connexion" type="submit" value="paiement"/>
-                <input class="button_reset" type="reset" value="annuler"/>
+            Identifiant : <input type="text" value="${utilConnecteP.loginPassager}" name="login"/><br/>
+            Mot de Passe : <input type="password" value="${utilConnecteP.mdpPassager}" name="mdp"/><br/>
+            Email : <input type="text" value="${utilConnecteP.mailPassager}" name="email"/><br/>
+            Tel : <input type="text" value="${utilConnecteP.telPassager}" name="tel"/></br>
+            <input class="button_connexion" type="submit" value="Enregistrer"/>
+            <input class="button_reset" type="reset" value="annuler"/>   
         </form>
     </body>
 </html>

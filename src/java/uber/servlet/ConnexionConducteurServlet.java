@@ -30,7 +30,7 @@ public class ConnexionConducteurServlet extends HttpServlet {
         Conducteur c = new ConducteurService().connexion(loginConducteur, mdpConducteur);
         
         // je suis logué correctement = session
-        req.getSession().setAttribute("utilConnecte", c);
+        req.getSession().setAttribute("utilConnecteC", c);
         
         
         resp.sendRedirect("map");

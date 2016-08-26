@@ -11,8 +11,10 @@
     <body>
         <h1>Cousin Huber</h1>
         <h2>Inscription Conducteur</h2>
-        <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>           
-        <a class="lien1" href="homePage.jsp">Home Page</a>
+        <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
+        <div class="menu">
+        <a class="lien1" href="home">Home Page</a>
+        </div>
         
             <form method="POST">
                 Identifiant : <input type="text" name="loginConducteur"/><br/>
@@ -20,8 +22,8 @@
                 Email : <input type="text" name="emailConducteur"/><br/>
                 Tel : <input type="text" name="telConducteur"/></br>
                 Immatriculation : <input type="text" name="immatConducteur"/></br>
-                <input class="button_connexion" type="submit" value="inscription"/>
-                <input class="button_reset" type="reset" value="annuler"/>
+                <input class="button_connexion" type="submit" value="Inscription"/>
+                <input class="button_reset" type="reset" value="Annuler"/>
             </form>
     </body>
 </html>

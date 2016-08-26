@@ -31,7 +31,7 @@ public class ConnexionPassagerServlet extends HttpServlet {
         Passager p = new PassagerService().connexion(loginPassager, mdpPassager);
         
         // je suis logué correctement = session
-        req.getSession().setAttribute("utilConnecte", p);
+        req.getSession().setAttribute("utilConnecteP", p);
         
         
         resp.sendRedirect("map");

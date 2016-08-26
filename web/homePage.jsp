@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,10 +17,27 @@
             Laissez nous vous guider...<br> 
             Nous vous offrons la liberté..."<br>
         </blockquote>
+        <div class="menu">
         <div id="lien">
-            <a href="connexion_conducteur">Conducteur</a>
-            <a href="connexion_passager">Passager</a>
-            <a href="map">Map(test)</a>
+            <c:choose>
+                <c:when test="${utilConnecteP.loginPassager==null}">
+                    <a href="connexion_passager">Passager</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="deconnexionPassager">Déconnexion</a>
+                    <a class="lienMap" href="map">Map</a>
+                </c:otherwise>
+            </c:choose>
+            <c:choose>
+                <c:when test="${utilConnecteC.loginConducteur==null}">
+                    <a href="connexion_conducteur">Conducteur</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="deconnexionConducteur">Déconnexion</a>
+                    <a href="map">Map</a>
+                </c:otherwise>
+            </c:choose>              
+        </div>
         </div>
         <div id="image"> 
             <img src="css/images/icon_tracteur.png" width="150px" alt="150px" />
