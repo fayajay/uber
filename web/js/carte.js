@@ -85,7 +85,7 @@ function afficherChauffeurs(data) {
         });
         //fenetre info
         var infowindow = new google.maps.InfoWindow({
-            content: dpars[index].nom + " " + dpars[index].nbPlaces
+            content: dpars[index].nom  + " " + dpars[index].vehicule + " " + parseInt(dpars[index].nbPlaces)
         });
         
         //évenement : affichage de la fenetre d'info quand on clique sur le marqueur
@@ -96,38 +96,7 @@ function afficherChauffeurs(data) {
     });
 }
 ;
-function chauffeurBidon() {
-    //récupération du chauffeur depuis le servlet
-    var ch = {
-        login: "${chauffeur1.loginConducteur}",
-        mail: "${chauffeur1.mailConducteur}",
-        tel: "${chauffeur1.telConducteur}",
-        immatriculation: "${chauffeur1.immatriculation}",
-        nbPlaces: "${chauffeur1.nbPlaces}",
-        type: "${chauffeur1.typeVehicule}",
-        lat: "${chauffeur1.latitude}",
-        lng: "${chauffeur1.longitude}"
-    };
-    var posch = {
-        lat: ch.lat,
-        lng: ch.lng
-    };
-    console.log(ch);
-    //placement du marqueur
-    var marqueurChauffeur = new google.maps.Marker({
-        position: posch,
-        map: map,
-        title: 'Chauffeur 1'
-    });
-    //fenetre info
-    var infowindow = new google.maps.InfoWindow({
-        content: ch.login + "\n" + ch.type + "\n" + ch.nbPlaces
-    });
-    marqueurChauffeur.addListener('click', function () {
-        infowindow.open(map, marqueurChauffeur);
-    });
-}
-;
+
 function success(pos) {
     var crd = pos.coords;
     maPosition.lat = crd.latitude;
