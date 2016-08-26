@@ -12,6 +12,7 @@
         <h1>Cousin Huber</h1>
         <h2>Bienvenue</h2>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
+        <div class="menu">
         <div class="lien1">
             <a href="home">Home Page</a>
             
@@ -25,6 +26,7 @@
                 </c:choose> 
             <a class="inscription" href="map">Map</a>
             <div class="clear"></div>
+        </div>
         </div>
         <form method="POST">
                 Adresse de Départ : <input type="text" name="adresseDepart"/><br/>
