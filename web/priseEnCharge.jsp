@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,10 +12,21 @@
         <h1>Cousin Huber</h1>
         <h2>Bienvenue</h2>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
+        <div class="menu">
         <div class="lien1">
-            <a href="homePage.jsp">Home Page</a>
+            <a href="home">Home Page</a>
+            
+            <c:choose>
+                <c:when test="${utilConnecteP.loginPassager!=null}">
+                    <a href="deconnexionPassager">Déconnexion</a>
+                </c:when>
+                    <c:otherwise>
+                        <a href="#"></a>
+                    </c:otherwise>
+                </c:choose> 
             <a class="inscription" href="map">Map</a>
             <div class="clear"></div>
+        </div>
         </div>
         <form method="POST">
                 Adresse de Départ : <input type="text" name="adresseDepart"/><br/>

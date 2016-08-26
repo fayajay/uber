@@ -17,6 +17,7 @@
             Laissez nous vous guider...<br> 
             Nous vous offrons la liberté..."<br>
         </blockquote>
+        <div class="menu">
         <div id="lien">
             <c:choose>
                 <c:when test="${utilConnecteP.loginPassager==null}">
@@ -24,6 +25,7 @@
                 </c:when>
                 <c:otherwise>
                     <a href="deconnexionPassager">Déconnexion</a>
+                    <a href="map">Map</a>
                 </c:otherwise>
             </c:choose>
             <c:choose>
@@ -32,11 +34,10 @@
                 </c:when>
                 <c:otherwise>
                     <a href="deconnexionConducteur">Déconnexion</a>
+                    <a href="map">Map</a>
                 </c:otherwise>
-            </c:choose>
-                    
-            <a href="map">Map(test)</a>
-            
+            </c:choose>              
+        </div>
         </div>
         <div id="image"> 
             <img src="css/images/icon_tracteur.png" width="150px" alt="150px" />
