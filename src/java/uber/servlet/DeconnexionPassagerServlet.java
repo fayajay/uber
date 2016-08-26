@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "DeconnexionServlet", urlPatterns = {"/deconnexion"})
-public class DeconnexionServlet extends HttpServlet {
+@WebServlet(name = "DeconnexionServlet", urlPatterns = {"/deconnexionPassager"})
+public class DeconnexionPassagerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-     req.getSession().removeAttribute("utilConnecte");
+     req.getSession().removeAttribute("utilConnecteP");
         
         resp.sendRedirect("homePage.jsp");
     }
