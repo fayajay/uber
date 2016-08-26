@@ -24,13 +24,14 @@
                 <c:choose>
                 <c:when test="${utilConnecteP.loginPassager!=null}">
                     <a class="right" href="deconnexionPassager">Déconnexion</a>
+                    <a class="modifier_profil" href="modifier_profil">Modifier Profil</a>
                 </c:when>
                     <c:otherwise>
                         <a href="#"></a>
                     </c:otherwise>
                 </c:choose>   
                 <a  href="prise_en_charge">Prise en Charge(test)</a>
-                <a class="modifier_profil" href="modifier_profil">Modifier Profil</a>
+                
                 <div class="clear"></div>
             </div>
         </div> 

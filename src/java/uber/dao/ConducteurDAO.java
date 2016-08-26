@@ -36,6 +36,10 @@ public class ConducteurDAO {
         query.setParameter("monMdp", mdpConducteur);
 
         return (Conducteur) query.getSingleResult();
-
+    }
+    
+    public List<Conducteur.TypeVehicule> listerVehicule() {
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        return em.createQuery("SELECT c.typeVehicule FROM Conducteur c ").getResultList();     
     }
 }
