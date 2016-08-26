@@ -1,7 +1,9 @@
 body {
     font-family: 'Annie Use Your Telescope', cursive;
-    background-color: #CDDE47;
+    background-color: #CDDE47;  
 }
+
+
 .clear {
     clear: both;
 }
@@ -48,7 +50,7 @@ img {
     border-radius: 25px;
 }
 #map {
-    margin: 1em;
+    margin: 3em;
 }
 #slogan_home {
     text-align: center;

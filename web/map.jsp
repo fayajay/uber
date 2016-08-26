@@ -20,7 +20,15 @@
         </div>
         <div class="menu">
             <div class="lien1">
-                <a href="homePage.jsp">Home Page</a>
+                <a href="home">Home Page</a>
+                <c:choose>
+                <c:when test="${utilConnecteP.loginPassager!=null}">
+                    <a href="deconnexionPassager">Déconnexion</a>
+                </c:when>
+                    <c:otherwise>
+                        <a href="#"></a>
+                    </c:otherwise>
+                </c:choose>   
                 <a class="inscription" href="prise_en_charge">Prise en Charge(test)</a>
                 <div class="clear"></div>
             </div>

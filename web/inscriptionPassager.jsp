@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +13,7 @@
         <h2>Inscription Passager</h2>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
             <a class="lien1" href="homePage.jsp">Home Page</a>
+            
         
             <form class="form" method="POST">
                 Identifiant : <input type="text" name="loginPassager"/><br/>
