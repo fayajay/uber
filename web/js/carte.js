@@ -55,13 +55,18 @@ function initMap() {
     });
     //géolocalisation et ajustement de la map
     var pos = navigator.geolocation.getCurrentPosition(success, error, options);
+
     //bouton de centrage
     var centerControlDiv = document.createElement('div');
     btCentrage(centerControlDiv, map, maPosition);
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
-    //chauffeurBidon();
-    //afficherChauffeurs();
+
+    //bouton d'arrivée
+    var centerControlDiv2 = document.createElement('div');
+    btArrivee(centerControlDiv2, map);
+    centerControlDiv2.index = 2;
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv2);
 }
 ;
 function afficherChauffeurs(data) {
@@ -76,7 +81,7 @@ function afficherChauffeurs(data) {
             lat: parseFloat(dpars[index].lat),
             lng: parseFloat(dpars[index].lng)
         };
-        
+
         //placement du marqueur
         var marqueurChauffeur = new google.maps.Marker({
             position: posch,
@@ -85,9 +90,9 @@ function afficherChauffeurs(data) {
         });
         //fenetre info
         var infowindow = new google.maps.InfoWindow({
-            content: dpars[index].nom  + " " + dpars[index].vehicule + " " + dpars[index].nbplaces
+            content: dpars[index].nom + " " + dpars[index].vehicule + " " + dpars[index].nbplaces
         });
-        
+
         //évenement : affichage de la fenetre d'info quand on clique sur le marqueur
         marqueurChauffeur.addListener('click', function () {
             infowindow.open(map, marqueurChauffeur);
@@ -133,7 +138,64 @@ function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
 }
 
+function btArrivee(controlDiv, map) {
+// Set CSS for the control border.
+    var controlUI = document.createElement('div');
+    controlUI.style.backgroundColor = '#fff';
+    controlUI.style.border = '2px solid #fff';
+    controlUI.style.borderRadius = '3px';
+    controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.marginBottom = '22px';
+    controlUI.style.textAlign = 'center';
+    controlUI.title = 'Click to recenter the map';
+    controlDiv.appendChild(controlUI);
+    // Set CSS for the control interior.
+    var controlText = document.createElement('div');
+    controlText.style.color = 'rgb(25,25,25)';
+    controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+    controlText.style.fontSize = '16px';
+    controlText.style.lineHeight = '38px';
+    controlText.style.paddingLeft = '5px';
+    controlText.style.paddingRight = '5px';
+    controlText.innerHTML = 'Placer point d arrivée';
+    controlUI.appendChild(controlText);
 
+    // placer un marqueur d'arrivée au centre de la map quand on clique
+    controlUI.addEventListener('click', function () {
+        var marqueur = new google.maps.Marker({
+            position: map.getCenter(),
+            map: map,
+            draggable: true,
+            title: 'arrivee'
+        });
+        //calculer et afficher le trajet quand on glisse le marqueur
+        marqueur.addListener('dragend', function () {
+            var directionsService = new google.maps.DirectionsService;
+            var directionsDisplay = new google.maps.DirectionsRenderer;
+
+            directionsService.route({
+                origin: maPosition,
+                destination: marqueur.getPosition(),
+                travelMode: google.maps.TravelMode.DRIVING
+            }, function (response, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                    directionsDisplay.setMap(map);
+
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+
+
+        });
+    });
+};
+
+function tracerTrajet(){
+    
+};
 
 function btCentrage(controlDiv, map, pos) {
 // Set CSS for the control border.
