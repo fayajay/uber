@@ -85,7 +85,7 @@ function afficherChauffeurs(data) {
         });
         //fenetre info
         var infowindow = new google.maps.InfoWindow({
-            content: dpars[index].nom  + " " + dpars[index].vehicule + " " + parseInt(dpars[index].nbPlaces)
+            content: dpars[index].nom  + " " + dpars[index].vehicule + " " + dpars[index].nbplaces
         });
         
         //évenement : affichage de la fenetre d'info quand on clique sur le marqueur
