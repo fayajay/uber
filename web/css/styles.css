@@ -1,20 +1,33 @@
+@font-face {
+    font-family: "Blazed";
+    src : url("Blazed.ttf");
+}
 body {
     font-family: 'Annie Use Your Telescope', cursive;
-    background-color: #CDDE47;  
+    /*background-color: #CDDE47; */
+    background-image: url("images/arc_en_ciel.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
-
 .clear {
     clear: both;
 }
 h1 {
-    font-family: 'Faster One', cursive;
+    font-family: 'Blazed', cursive;
     text-align: center;
-    color: #FF73BF;
-    font-size: 5em;
+    color: #FF0000;
+    font-size: 7em;
+    text-shadow: #000000 10px 10px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
 h2 {
     text-align: center;
     font-size: 4em;
+    color: #4cff00;
+    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+a {
+    color: #4cff00;
+    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
 #lien {
     text-align: center;
@@ -38,9 +51,6 @@ form {
 input {
     font-size: 0.5em;
 }
-img {
-    margin: 0.7em;
-}
 .button_connexion {
     background-color: #FF73BF;
     font-size: 0.5em;
@@ -60,8 +70,35 @@ img {
 }
 .slogan {
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
 }
 select {
     font-size: 0.5em;
+}
+
+/* IMAGES HOME PAGE*/
+
+#img {
+    margin: 0 100px;
+}
+
+#img_voit,#img_scoot, #img_velo {
+    position: absolute;    
+}
+
+marquee {
+    position: absolute;
+}
+
+#img_voit {
+    margin-left: 80%;
+}
+#img_velo {
+    margin-left: 10%
+}
+#img_scoot {
+    margin-top: -5%;
+    margin-left: -3%;
+        
+        
 }
