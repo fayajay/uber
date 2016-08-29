@@ -9,14 +9,30 @@
         <title>Home Page</title>
     </head>
     <body>
+        
+        <img id="img_velo" src="css/images_2/velo.png" width="150px" alt="150px" />
+        <img id="img_voit" src="css/images_2/vv.png" width="150px" alt="150px" />
         <h1>Cousin Huber</h1>
         <h2>Bienvenue</h2>
+        <center>
+            <img id="img_scoot" src="css/images_2/scooter.png" width="150px" alt="150px" />
+        </center>
+        <marquee scrollamount="15">
+		<figure>
+                    <img id="img_ovni" src="css/images_2/ovni.png" width="150px" alt="150px" />	
+                </figure>
+            </marquee>
         <blockquote id="slogan_home">
             "Libérez vos pieds...<br>
-            Libérez vos idées... <br>
+            Libérez vos idées... <br>  
             Laissez nous vous guider...<br> 
             Nous vous offrons la liberté..."<br>
         </blockquote>
+        <center id="image">         
+            <img id="img" src="css/images_2/tracteur.png" width="150px" alt="150px" />
+            <img id="img" src="css/images_2/caddie.png" width="150px" alt="150px" />
+            <img id="img" src="css/images_2/fusee.png" width="150px" alt="150px" />
+        </center>
         <div class="menu">
         <div id="lien">
             <c:choose>
@@ -38,15 +54,6 @@
                 </c:otherwise>
             </c:choose>              
         </div>
-        </div>
-        <div id="image"> 
-            <img src="css/images/icon_tracteur.png" width="150px" alt="150px" />
-            <img src="css/images/icon_caddie.jpg" width="150px" alt="150px" />
-            <img src="css/images/icon_jetpack.png" width="150px" alt="150px" />
-            <img src="css/images/icon_moto3.jpeg" width="150px" alt="150px" />
-            <img src="css/images/icon_poney.png" width="150px" alt="150px" />
-            <img src="css/images/icon_velo.png" width="150px" alt="150px" />
-            <img src="css/images/icon_voit.png" width="150px" alt="150px" />
         </div>
     </body>
 </html>

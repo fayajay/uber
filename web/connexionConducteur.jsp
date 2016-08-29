@@ -10,7 +10,8 @@
         <title>Connexion Conducteur</title>
     </head>
     <body>
-        <h1>Cousin Huber</h1>
+        <h1>Cousin Huber</h1>   
+        
         <h2>Connexion Conducteur</h2>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         <div class="menu">

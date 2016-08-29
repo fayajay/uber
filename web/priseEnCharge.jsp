@@ -30,7 +30,7 @@
         </div>
         <form method="POST">
                 Adresse de Départ : <input type="text" name="adresseDepart"/><br/>
-                Adresse d'Arrivée : <input type="password" name="adresseArrive"/><br/>
+                Adresse d'Arrivée : <input type="text" name="adresseArrive"/><br/>
                 Nombre de passager : <select>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
