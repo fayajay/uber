@@ -7,10 +7,15 @@ package uber.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -23,9 +28,20 @@ public class Historique implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @ManyToOne
+    @JoinColumn(name="passager_id")
     private Passager passager;
+    
+    @ManyToOne
+    @JoinColumn(name="conducteur_id")
     private Conducteur conducteur;
+    
+    @Column(name="date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+    
+    
 
     public Date getDate() {
         return date;

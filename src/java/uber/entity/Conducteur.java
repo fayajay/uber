@@ -1,10 +1,13 @@
 package uber.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Conducteur implements Serializable {
@@ -33,8 +36,19 @@ public class Conducteur implements Serializable {
         PONEY,
         JETPACK;
     }
+    
+    @OneToMany (mappedBy="conducteur")
+    private List<Historique> historiques = new ArrayList<Historique>();
+    
+    public List<Historique> getHistoriques() {
+        return historiques;
+    }
 
     // GETTER & SETTER
+    public void setHistoriques(List<Historique> historiques) {
+        this.historiques = historiques;
+    }
+
     public String getLoginConducteur() {
         return loginConducteur;
     }
