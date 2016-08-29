@@ -28,24 +28,23 @@ public class Historique implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @ManyToOne
-    @JoinColumn(name="passager_id")
+    @JoinColumn(name = "passager_id")
     private Passager passager;
-    
+
     @ManyToOne
-    @JoinColumn(name="conducteur_id")
+    @JoinColumn(name = "conducteur_id")
     private Conducteur conducteur;
-    
-    @Column(name="date")
+
+    @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    
+
     private String depart;
     private String arrivee;
     private float distance;
     private float prix;
-    
 
     public Long getId() {
         return id;
