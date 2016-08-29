@@ -36,6 +36,7 @@ public class MapServlet extends HttpServlet {
             str += "{";//nouvel objet json
             
             //*****JSON A LA MAIN *****
+            str += "\"id\":\"" + c.getId() + "\",";
             str += "\"nom\":\"" + c.getLoginConducteur() + "\",";
             str += "\"immat\":\"" + c.getImmatriculation() + "\",";
             str += "\"lat\":\"" + c.getLatitude() + "\",";

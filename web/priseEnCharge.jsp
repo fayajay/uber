@@ -28,6 +28,7 @@
             <div class="clear"></div>
         </div>
         </div>
+        <h3>Chauffeur n° : ${idConducteur}</h3>
         <form method="POST">
                 Adresse de Départ : <input type="text" name="adresseDepart"/><br/>
                 Adresse d'Arrivée : <input type="text" name="adresseArrive"/><br/>
