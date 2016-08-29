@@ -28,27 +28,30 @@ public class Historique implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @ManyToOne
-    @JoinColumn(name="passager_id")
+    @JoinColumn(name = "passager_id")
     private Passager passager;
-    
+
     @ManyToOne
-    @JoinColumn(name="conducteur_id")
+    @JoinColumn(name = "conducteur_id")
     private Conducteur conducteur;
-    
-    @Column(name="date")
+
+    @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    
-    
 
-    public Date getDate() {
-        return date;
+    private String depart;
+    private String arrivee;
+    private float distance;
+    private float prix;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Passager getPassager() {
@@ -67,12 +70,44 @@ public class Historique implements Serializable {
         this.conducteur = conducteur;
     }
 
-    public Long getId() {
-        return id;
+    public Date getDate() {
+        return date;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getDepart() {
+        return depart;
+    }
+
+    public void setDepart(String depart) {
+        this.depart = depart;
+    }
+
+    public String getArrivee() {
+        return arrivee;
+    }
+
+    public void setArrivee(String arrivee) {
+        this.arrivee = arrivee;
+    }
+
+    public float getDistance() {
+        return distance;
+    }
+
+    public void setDistance(float distance) {
+        this.distance = distance;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
     }
 
     @Override
