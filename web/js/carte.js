@@ -16,6 +16,7 @@
  - un fichier css pour resizer la map
  - modifier les marqueurs
  - tout
+ - calculer distance et tarif du trajet
  */
 
 
@@ -90,9 +91,9 @@ function afficherChauffeurs(data) {
         });
         //fenetre info
         var infowindow = new google.maps.InfoWindow({
-            content: dpars[index].nom  + ' ' + dpars[index].vehicule + ' ' + dpars[index].nbplaces +
-                   '<br><a class="lien_map" href="prise_en_charge?idConducteur=' + dpars[index].id + '">Demande</a>' 
-                   
+            content: dpars[index].nom + ' ' + dpars[index].vehicule + ' ' + dpars[index].nbplaces +
+                    '<br><a class="lien_map" href="prise_en_charge?idConducteur=' + dpars[index].id + '">Demande</a>'
+
         });
 
         //évenement : affichage de la fenetre d'info quand on clique sur le marqueur
@@ -165,6 +166,10 @@ function btArrivee(controlDiv, map) {
 
     // placer un marqueur d'arrivée au centre de la map quand on clique
     controlUI.addEventListener('click', function () {
+
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+
         var marqueur = new google.maps.Marker({
             position: map.getCenter(),
             map: map,
@@ -173,9 +178,6 @@ function btArrivee(controlDiv, map) {
         });
         //calculer et afficher le trajet quand on glisse le marqueur
         marqueur.addListener('dragend', function () {
-            var directionsService = new google.maps.DirectionsService;
-            var directionsDisplay = new google.maps.DirectionsRenderer;
-
             directionsService.route({
                 origin: maPosition,
                 destination: marqueur.getPosition(),
@@ -184,6 +186,8 @@ function btArrivee(controlDiv, map) {
                 if (status === google.maps.DirectionsStatus.OK) {
                     directionsDisplay.setDirections(response);
                     directionsDisplay.setMap(map);
+                    
+                    console.log(directionsDisplay.getDirections().distance.text);
 
                 } else {
                     window.alert('Directions request failed due to ' + status);
@@ -193,11 +197,13 @@ function btArrivee(controlDiv, map) {
 
         });
     });
-};
+}
+;
 
-function tracerTrajet(){
-    
-};
+function tracerTrajet() {
+
+}
+;
 
 function btCentrage(controlDiv, map, pos) {
 // Set CSS for the control border.
