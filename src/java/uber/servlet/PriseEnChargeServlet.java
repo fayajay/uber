@@ -27,7 +27,7 @@ public class PriseEnChargeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         
-        // inserer ici le code pour récuperer les données envoyez au conducteur par le passager
+        // inserer ici le code pour récuperer les données envoyez au conducteur par le passager et inscrire dans l'historique
         
         
         resp.sendRedirect("paiement");

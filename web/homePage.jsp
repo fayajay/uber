@@ -37,7 +37,7 @@
         <div id="lien">
             <c:choose>
                 <c:when test="${utilConnecteP.loginPassager==null}">
-                    <a href="connexion_passager">Passager</a>
+                    <a href="connexion_passager">Passager</a>                    
                 </c:when>
                 <c:otherwise>
                     <a href="deconnexionPassager">Déconnexion</a>

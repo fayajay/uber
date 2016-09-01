@@ -26,12 +26,13 @@
                     <a class="right" href="deconnexionPassager">Déconnexion</a>
                     <a class="modifier_profil" href="modifier_profil">Modifier Profil</a>
                 </c:when>
+                <c:when test="${utilConnecteC.loginConducteur!=null}">
+                    <a class="modifier_profil_conducteur" href="modifier_profil_conducteur">Modifier Profil</a>
+                </c:when>
                     <c:otherwise>
                         <a href="#"></a>
                     </c:otherwise>
                 </c:choose>   
-                <a class="inscription" href="prise_en_charge">Prise en Charge(test)</a>
-                <a class="modifier_profil_conducteur" href="modifier_profil_conducteur">Modifier ProfilC</a>
                 <div class="clear"></div>
             </div>
         </div> 
