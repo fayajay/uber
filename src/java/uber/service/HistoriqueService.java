@@ -18,4 +18,8 @@ public class HistoriqueService {
         return new HistoriqueDAO().lister();
     }
     
+    public void enregistrerHistorique(Historique h) {
+        new HistoriqueDAO().enregistrerHistorique(h);
+    }
+    
 }

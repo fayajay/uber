@@ -26,6 +26,7 @@ public class Conducteur implements Serializable {
     public TypeVehicule typeVehicule;
     private float latitude;
     private float longitude;
+    private float prixAuKm;
 
     public enum TypeVehicule {
         VOITURE,
@@ -45,6 +46,15 @@ public class Conducteur implements Serializable {
     }
 
     // GETTER & SETTER
+
+    public float getPrixAuKm() {
+        return prixAuKm;
+    }
+
+    public void setPrixAuKm(float prixAuKm) {
+        this.prixAuKm = prixAuKm;
+    }
+    
     public void setHistoriques(List<Historique> historiques) {
         this.historiques = historiques;
     }

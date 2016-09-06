@@ -35,8 +35,20 @@ h3 {
     font-size: 4em;
     text-shadow: #000000 10px 10px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
+h4 {
+    text-align: center;
+    font-size: 3em;
+    color: #CDDE47;
+    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+#historique, #profil {
+    text-align: center;
+}
 a {
   color: #4cff00;  
+}
+li {
+    font-size: 2em;
 }
 #lien {
     text-align: center;

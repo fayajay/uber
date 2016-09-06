@@ -7,12 +7,15 @@ package uber.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import uber.entity.Historique;
 import uber.entity.Passager;
+import uber.service.HistoriqueService;
 import uber.service.PassagerService;
 
 
@@ -34,9 +37,10 @@ public class ProfilPassagerServlet extends HttpServlet {
         Passager p = (Passager) request.getSession().getAttribute("utilConnecte");
         
         
-        //2- appel le service pour recup passager apartir de l ID
+        HistoriqueService hs = new HistoriqueService();
+        List<Historique> historique = hs.lister();
         
-        //3 ajouter un atribut de requet avec cette passager
+        request.setAttribute("historique", historique);
         
         
         request.getRequestDispatcher("modifier_profil.jsp").forward(request, response);

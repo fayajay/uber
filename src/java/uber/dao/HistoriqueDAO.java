@@ -19,5 +19,12 @@ public class HistoriqueDAO {
     EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
     return em.createQuery("SELECT h FROM Historique h").getResultList();
 }
+        
+public void enregistrerHistorique (Historique h) {
+    EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+    em.getTransaction().begin();
+    em.persist(h);
+    em.getTransaction().commit();
+    } 
     
 }

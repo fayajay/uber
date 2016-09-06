@@ -14,8 +14,18 @@
     </head>
     <body>
         <div class="header">
+            <img id="img_velo" src="css/images_2/velo.png" width="150px" alt="150px" />
+            <img id="img_voit" src="css/images_2/vv.png" width="150px" alt="150px" />
             <h1>Cousin Huber</h1>
             <h2>MAP</h2>
+            <center>
+            <img id="img_scoot" src="css/images_2/scooter.png" width="150px" alt="150px" />
+        </center>
+        <marquee scrollamount="15">
+		<figure>
+                    <img id="img_ovni" src="css/images_2/ovni.png" width="150px" alt="150px" />	
+                </figure>
+        </marquee>
             <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         </div>
         <div class="menu">
@@ -24,7 +34,7 @@
                 <c:choose>
                 <c:when test="${utilConnecteP.loginPassager!=null}">
                     <a class="right" href="deconnexionPassager">Déconnexion</a>
-                    <a class="modifier_profil" href="modifier_profil">Modifier Profil</a>
+                    <a class="modifier_profil" href="modifier_profil">Profil</a>
                 </c:when>
                 <c:when test="${utilConnecteC.loginConducteur!=null}">
                     <a class="modifier_profil_conducteur" href="modifier_profil_conducteur">Modifier Profil</a>
@@ -45,6 +55,11 @@
                 </script>
                 <script type="text/javascript" src="js/carte.js"></script>
             </div>
+        <center id="image">         
+            <img id="img" src="css/images_2/tracteur.png" width="150px" alt="150px" />
+            <img id="img" src="css/images_2/caddie.png" width="150px" alt="150px" />
+            <img id="img" src="css/images_2/fusee.png" width="150px" alt="150px" />
+        </center>
         <div class="footer"></div>
     </body>
 </html>

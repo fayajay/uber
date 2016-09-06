@@ -9,31 +9,57 @@
         <title>Paiement</title>
     </head>
     <body>
+        <img id="img_velo" src="css/images_2/velo.png" width="150px" alt="150px" />
+        <img id="img_voit" src="css/images_2/vv.png" width="150px" alt="150px" />
         <h1>Cousin Huber</h1>
         <h2>Modifier Profil</h2>
+        <center>
+            <img id="img_scoot" src="css/images_2/scooter.png" width="150px" alt="150px" />
+        </center>
+        <marquee scrollamount="15">
+		<figure>
+                    <img id="img_ovni" src="css/images_2/ovni.png" width="150px" alt="150px" />	
+                </figure>
+        </marquee>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         <div class="menu">
-        <div class="lien1">
-            <a href="home">Home Page</a>
-            <a class="lienMap" href="map">Map</a>
-            <c:choose>
-                <c:when test="${utilConnecteP.loginPassager!=null}">
-                    <a class="right" href="deconnexionPassager">Déconnexion</a>
-                </c:when>
-                    <c:otherwise>
-                        <a href="#"></a>
-                    </c:otherwise>
-                </c:choose>  
-            <div class="clear"></div>
+            <div class="lien1">
+                <a href="home">Home Page</a>
+                <a class="lienMap" href="map">Map</a>
+                <c:choose>
+                    <c:when test="${utilConnecteP.loginPassager!=null}">
+                        <a class="right" href="deconnexionPassager">Déconnexion</a>
+                    </c:when>
+                        <c:otherwise>
+                            <a href="#"></a>
+                        </c:otherwise>
+                    </c:choose>  
+                <div class="clear"></div>
+            </div>
         </div>
+        <div id='historique'>
+            <h4>Historique des trajets</h4>
+                <c:forEach items="${historique}" var="h">
+                    <ul>
+                        <li>${h.depart}, ${h.arrivee}, ${h.prix}$</li>
+                    </ul>
+                </c:forEach>
         </div>
-        <form method="POST">
-            Identifiant : <input type="text" value="${utilConnecteP.loginPassager}" name="login"/><br/>
-            Mot de Passe : <input type="password" value="${utilConnecteP.mdpPassager}" name="mdp"/><br/>
-            Email : <input type="text" value="${utilConnecteP.mailPassager}" name="email"/><br/>
-            Tel : <input type="text" value="${utilConnecteP.telPassager}" name="tel"/></br>
-            <input class="button_connexion" type="submit" value="Enregistrer"/>
-            <input class="button_reset" type="reset" value="annuler"/>   
-        </form>
+        <div id='profil'>
+            <h4>Modifier votre profil</h4>
+            <form method="POST">
+                Identifiant : <input type="text" value="${utilConnecteP.loginPassager}" name="login"/><br/>
+                Mot de Passe : <input type="password" value="${utilConnecteP.mdpPassager}" name="mdp"/><br/>
+                Email : <input type="text" value="${utilConnecteP.mailPassager}" name="email"/><br/>
+                Tel : <input type="text" value="${utilConnecteP.telPassager}" name="tel"/></br>
+                <input class="button_connexion" type="submit" value="Enregistrer"/>
+                <input class="button_reset" type="reset" value="annuler"/>   
+            </form>
+        </div>
+        <center id="image">         
+            <img id="img" src="css/images_2/tracteur.png" width="150px" alt="150px" />
+            <img id="img" src="css/images_2/caddie.png" width="150px" alt="150px" />
+            <img id="img" src="css/images_2/fusee.png" width="150px" alt="150px" />
+        </center>
     </body>
 </html>

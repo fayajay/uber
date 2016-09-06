@@ -36,23 +36,19 @@
         <div class="menu">
         <div id="lien">
             <c:choose>
-                <c:when test="${utilConnecteP.loginPassager==null}">
-                    <a href="connexion_passager">Passager</a>                    
+                <c:when test="${utilConnecteP.loginPassager==null && utilConnecteC.loginConducteur==null}">
+                    <a href="connexion_passager">Passager</a>
+                    <a href="connexion_conducteur">Conducteur</a>                    
                 </c:when>
-                <c:otherwise>
+                <c:when test="${utilConnecteP.loginPassager!=null}">
                     <a href="deconnexionPassager">Déconnexion</a>
                     <a class="lienMap" href="map">Map</a>
-                </c:otherwise>
-            </c:choose>
-            <c:choose>
-                <c:when test="${utilConnecteC.loginConducteur==null}">
-                    <a href="connexion_conducteur">Conducteur</a>
                 </c:when>
-                <c:otherwise>
+                <c:when test="${utilConnecteC.loginConducteur!=null}">
                     <a href="deconnexionConducteur">Déconnexion</a>
                     <a href="map">Map</a>
-                </c:otherwise>
-            </c:choose>              
+                </c:when>
+            </c:choose>             
         </div>
         </div>
     </body>

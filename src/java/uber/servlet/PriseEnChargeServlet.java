@@ -6,7 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import uber.entity.Historique;
+import uber.service.HistoriqueService;
 
 
 @WebServlet(name = "PriseEnChargeServlet", urlPatterns = {"/prise_en_charge"})
@@ -26,13 +27,19 @@ public class PriseEnChargeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
+        //Passager pInit =(Passager) req.getSession().getAttribute("utilConnecteP");
         
-        // inserer ici le code pour récuperer les données envoyez au conducteur par le passager et inscrire dans l'historique
+        Historique h = new Historique();
         
+        
+        h.setDepart(req.getParameter("depart"));
+        h.setArrivee(req.getParameter("arrivee"));
+        h.setPrix(Float.parseFloat (req.getParameter("prix")));
+        
+        HistoriqueService hs = new HistoriqueService(); 
+        
+        hs.enregistrerHistorique(h);
         
         resp.sendRedirect("paiement");
     }
-
-    
-
 }

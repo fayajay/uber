@@ -132,7 +132,7 @@ public class Historique implements Serializable {
 
     @Override
     public String toString() {
-        return "uber.entity.Historique[ id=" + id + " ]";
+        return  depart + ", " + arrivee;
     }
 
 }
