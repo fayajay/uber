@@ -16,6 +16,8 @@ public class PriseEnChargeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
+        
+        
         long idConducteur = Long.parseLong( req.getParameter("idConducteur") );
         String nomConducteur = req.getParameter("nomConducteur") ;
         req.setAttribute("idConducteur", idConducteur);
@@ -27,7 +29,7 @@ public class PriseEnChargeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-        //Passager pInit =(Passager) req.getSession().getAttribute("utilConnecteP");
+        
         
         Historique h = new Historique();
         

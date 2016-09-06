@@ -12,7 +12,7 @@
         <img id="img_velo" src="css/images_2/velo.png" width="150px" alt="150px" />
         <img id="img_voit" src="css/images_2/vv.png" width="150px" alt="150px" />
         <h1>Cousin Huber</h1>
-        <h2>Modifier Profil</h2>
+        <h2>Profil</h2>
         <center>
             <img id="img_scoot" src="css/images_2/scooter.png" width="150px" alt="150px" />
         </center>
@@ -23,25 +23,30 @@
         </marquee>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         <div class="menu">
-            <div class="lien1">
                 <a href="home">Home Page</a>
                 <a class="lienMap" href="map">Map</a>
                 <c:choose>
                     <c:when test="${utilConnecteP.loginPassager!=null}">
                         <a class="right" href="deconnexionPassager">Déconnexion</a>
+                        <strong>${utilConnecteP.loginPassager}</strong>
+                    </c:when>
+                    <c:when test="${utilConnecteC.loginConducteur!=null}">
+                    <a class="modifier_profil_conducteur" href="modifier_profil_conducteur">Profil</a>
+                    <strong>${utilConnecteC.loginConducteur}</strong>
+                    <a class="right" href="deconnexionPassager">Déconnexion</a>
                     </c:when>
                         <c:otherwise>
                             <a href="#"></a>
                         </c:otherwise>
                     </c:choose>  
                 <div class="clear"></div>
-            </div>
         </div>
         <div id='historique'>
             <h4>Historique des trajets</h4>
                 <c:forEach items="${historique}" var="h">
                     <ul>
-                        <li>${h.depart}, ${h.arrivee}, ${h.prix}$ en ${h.modePaiement}, ${h.nbPassager}passagers</li>
+                        <li><b>Départ : </b><em>${h.depart}</em>, <b>Arrivée : </b><em>${h.arrivee}</em>, <b>Prix : </b><em>${h.prix}$ en ${h.modePaiement}</em>,  
+                            <b>Nombre de Passager : </b><em>${h.nbPassager}passagers</em></li>
                     </ul>
                 </c:forEach>
         </div>

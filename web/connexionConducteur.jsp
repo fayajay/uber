@@ -24,11 +24,9 @@
         </marquee>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         <div class="menu">
-        <div class="lien1">
             <a href="home">Home Page</a>
             <a class="right" href="inscription_conducteur">Inscription</a>
             <div class="clear"></div>
-        </div>
         </div>
             <form method="POST">
                 Identifiant : <input type="text" name="loginConducteur"/>

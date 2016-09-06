@@ -29,22 +29,23 @@
             <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         </div>
         <div class="menu">
-            <div class="lien1">
                 <a href="home">Home Page</a>
                 <c:choose>
                 <c:when test="${utilConnecteP.loginPassager!=null}">
                     <a class="right" href="deconnexionPassager">Déconnexion</a>
                     <a class="modifier_profil" href="modifier_profil">Profil</a>
+                    <strong>${utilConnecteP.loginPassager}</strong>
                 </c:when>
                 <c:when test="${utilConnecteC.loginConducteur!=null}">
-                    <a class="modifier_profil_conducteur" href="modifier_profil_conducteur">Modifier Profil</a>
+                    <a class="modifier_profil_conducteur" href="modifier_profil_conducteur">Profil</a>
+                    <strong>${utilConnecteC.loginConducteur}</strong>
+                    <a class="right" href="deconnexionPassager">Déconnexion</a>
                 </c:when>
                     <c:otherwise>
                         <a href="#"></a>
                     </c:otherwise>
                 </c:choose>   
                 <div class="clear"></div>
-            </div>
         </div> 
             <div id="map">
                 <script type="text/javascript" src="js/jquery.min.js"></script>

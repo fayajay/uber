@@ -23,7 +23,7 @@
         </marquee>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         <div class="menu">
-            <a class="lien1" href="home">Home Page</a>
+            <a href="home">Home Page</a>
         </div> 
         
             <form class="form" method="POST">

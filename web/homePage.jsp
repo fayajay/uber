@@ -28,28 +28,29 @@
             Laissez nous vous guider...<br> 
             Nous vous offrons la liberté..."<br>
         </blockquote>
-        <center id="image">         
-            <img id="img" src="css/images_2/tracteur.png" width="150px" alt="150px" />
-            <img id="img" src="css/images_2/caddie.png" width="150px" alt="150px" />
-            <img id="img" src="css/images_2/fusee.png" width="150px" alt="150px" />
-        </center>
-        <div class="menu">
-        <div id="lien">
+        
+        <div class="menuHome">
             <c:choose>
                 <c:when test="${utilConnecteP.loginPassager==null && utilConnecteC.loginConducteur==null}">
                     <a href="connexion_passager">Passager</a>
                     <a href="connexion_conducteur">Conducteur</a>                    
                 </c:when>
                 <c:when test="${utilConnecteP.loginPassager!=null}">
-                    <a href="deconnexionPassager">Déconnexion</a>
+                    <a class='right' href="deconnexionPassager">Déconnexion</a>
                     <a class="lienMap" href="map">Map</a>
+                    <strong>${utilConnecteP.loginPassager}</strong>   
                 </c:when>
                 <c:when test="${utilConnecteC.loginConducteur!=null}">
                     <a href="deconnexionConducteur">Déconnexion</a>
+                    <strong>${utilConnecteC.loginConducteur}</strong>
                     <a href="map">Map</a>
                 </c:when>
             </c:choose>             
         </div>
-        </div>
+        <center id="image">         
+            <img id="img" src="css/images_2/tracteur.png" width="150px" alt="150px" />
+            <img id="img" src="css/images_2/caddie.png" width="150px" alt="150px" />
+            <img id="img" src="css/images_2/fusee.png" width="150px" alt="150px" />
+        </center>
     </body>
 </html>

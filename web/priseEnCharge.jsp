@@ -23,20 +23,20 @@
         </marquee>
         <blockquote class="slogan">"Libérez vos pieds...Libérez vos idées...Laissez nous vous guider...Nous vous offrons la liberté..."</blockquote>
         <div class="menu">
-        <div class="lien1">
             <a href="home">Home Page</a>
             
             <c:choose>
                 <c:when test="${utilConnecteP.loginPassager!=null}">
+                    <a class="lienMap" href="map">Map</a>
                     <a class="right" href="deconnexionPassager">Déconnexion</a>
+                    <strong>${utilConnecteP.loginPassager}</strong>
                 </c:when>
                     <c:otherwise>
                         <a href="#"></a>
                     </c:otherwise>
                 </c:choose> 
-            <a class="lienMap" href="map">Map</a>
+            
             <div class="clear"></div>
-        </div>
         </div>
         <h3>Chauffeur n° : ${idConducteur} </h3>
         <form method="POST">

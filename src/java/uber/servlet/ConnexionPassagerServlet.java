@@ -28,6 +28,13 @@ public class ConnexionPassagerServlet extends HttpServlet {
         String loginPassager = req.getParameter("loginPassager");
         String mdpPassager = req.getParameter("mdpPassager");
         
+        if (loginPassager.isEmpty()|| mdpPassager.isEmpty()){
+            resp.sendRedirect("home");
+        }
+        
+        
+        
+        else {
         Passager p = new PassagerService().connexion(loginPassager, mdpPassager);
         
         // je suis logué correctement = session
@@ -35,6 +42,6 @@ public class ConnexionPassagerServlet extends HttpServlet {
         
         
         resp.sendRedirect("map");
- 
+        }
     }
 }

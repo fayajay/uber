@@ -47,17 +47,24 @@ h4 {
 a {
   color: #4cff00;  
 }
+strong {
+    font-family: 'Blazed', cursive;
+    margin-left: 300px;
+    color: #CDDE47;
+    font-size: 1em;
+    text-shadow: #000000 10px 10px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
 li {
     font-size: 2em;
 }
-#lien {
-    text-align: center;
-    font-size : 8em;
+.menu {
+    font-size: 5em;
     margin: 0.3em;
     color: #4cff00;
     text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
-.lien1 {
+.menuHome {
+    text-align: center;
     font-size: 5em;
     margin: 0.3em;
     color: #4cff00;
@@ -80,6 +87,10 @@ li {
 }
 select {
       font-size: 0.5em;
+}
+b {
+    font-size: 1.2em;
+    text-decoration: underline;
 }
   
 /* FORMULAIRE */
