@@ -42,7 +42,7 @@
         <form method="POST">
                 Adresse de Départ : <input type="text" name="depart"/><br/>
                 Adresse d'Arrivée : <input type="text" name="arrivee"/><br/>
-                Nombre de passager : <select>
+                Nombre de passager : <select name="nbPassager">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -55,6 +55,16 @@
                 Email : <input type="text" name="emailConducteur" value="${utilConnecteP.mailPassager}"/><br/>
                 Tel : <input type="text" name="telConducteur" value="${utilConnecteP.telPassager}"/></br>
                 Prix de la courses : <input type="text" name="prix"/><br/>
+                Choisissez votre mode de paiement : <select name="modePaiement">
+                                                        <option value="CB">CB</option>
+                                                        <option value="VISA">VISA</option>
+                                                        <option value="AMEX">AMERICAN EXPRESS</option>
+                                                        <option value="MASTERCARD">MASTER CARD</option>
+                                                        <option value="PAYPAL">PAYPAL</option>
+                                                        <option value="CASH">CASH</option>
+                                                        <option value="NATURE">NATURE</option>
+                                                        <option value="TROC">TROC</option>
+                                                    </select><br>
                 
                 <input class="button_connexion" type="submit" value="Demande"/>
                 <input class="button_reset" type="reset" value="Annuler"/>

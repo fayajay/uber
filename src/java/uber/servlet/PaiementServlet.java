@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 @WebServlet(name = "PaiementServlet", urlPatterns = {"/paiement"})
 public class PaiementServlet extends HttpServlet {
 
@@ -21,10 +22,11 @@ public class PaiementServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         
-        // inserer ici le code pour récuperer les données de paiement
         
         
-        resp.sendRedirect("map");
+        resp.sendRedirect("modifier_profil");
+        
+        
     }
     
 }

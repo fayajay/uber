@@ -95,7 +95,7 @@ function afficherChauffeurs(data) {
         });
         //fenetre info
         var infowindow = new google.maps.InfoWindow({
-            content: dpars[index].nom + ' ' + dpars[index].vehicule + ' ' + dpars[index].nbplaces +
+            content: dpars[index].nom + ' ' + dpars[index].vehicule + ' ' + dpars[index].nbplaces + ' ' + 
                     '<br><a class="lien_map" href="prise_en_charge?idConducteur=' + dpars[index].id + '">Demande</a>'
 
         });

@@ -45,6 +45,28 @@ public class Historique implements Serializable {
     private String arrivee;
     private float distance;
     private float prix;
+    private int nbPassager;
+    private String modePaiement;
+
+    public String getModePaiement() {
+        return modePaiement;
+    }
+
+    public void setModePaiement(String modePaiement) {
+        this.modePaiement = modePaiement;
+    }
+    
+    
+
+    public int getNbPassager() {
+        return nbPassager;
+    }
+
+    public void setNbPassager(int nbPassager) {
+        this.nbPassager = nbPassager;
+    }
+    
+    
 
     public Long getId() {
         return id;

@@ -22,6 +22,17 @@ public class Passager implements Serializable {
     private String mdpPassager;
     private String mailPassager;
     private String telPassager;
+    private int nbPassager;
+
+    public int getNbPassager() {
+        return nbPassager;
+    }
+
+    public void setNbPassager(int nbPassager) {
+        this.nbPassager = nbPassager;
+    }
+    
+    
     
     @OneToMany (mappedBy="passager")
     private List<Historique> historique = new ArrayList<Historique>();

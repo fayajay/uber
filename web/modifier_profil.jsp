@@ -41,7 +41,7 @@
             <h4>Historique des trajets</h4>
                 <c:forEach items="${historique}" var="h">
                     <ul>
-                        <li>${h.depart}, ${h.arrivee}, ${h.prix}$</li>
+                        <li>${h.depart}, ${h.arrivee}, ${h.prix}$ en ${h.modePaiement}, ${h.nbPassager}passagers</li>
                     </ul>
                 </c:forEach>
         </div>

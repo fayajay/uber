@@ -38,16 +38,7 @@
         </div>
         </div>
         <form method="POST">
-                Choisissez votre mode de paiement : <select>
-                                                        <option value="CB">CB</option>
-                                                        <option value="VISA">VISA</option>
-                                                        <option value="AMEX">AMERICAN EXPRESS</option>
-                                                        <option value="MASTERCARD">MASTER CARD</option>
-                                                        <option value="PAYPAL">PAYPAL</option>
-                                                        <option value="CASH">CASH</option>
-                                                        <option value="NATURE">NATURE</option>
-                                                        <option value="TROC">TROC</option>
-                                                    </select><br>
+                Vous avez choisi de payer en ...., la somme de ....
                 <input class="button_connexion" type="submit" value="paiement"/>
                 <input class="button_reset" type="reset" value="annuler"/>
         </form>
