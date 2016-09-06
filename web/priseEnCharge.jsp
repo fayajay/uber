@@ -40,8 +40,8 @@
         </div>
         <h3>Chauffeur n° : ${idConducteur} </h3>
         <form method="POST">
-                Adresse de Départ : <input type="text" name="depart"/><br/>
-                Adresse d'Arrivée : <input type="text" name="arrivee"/><br/>
+                Adresse de Départ : <input type="text" name="depart" value="${adrDep}"/><br/>
+                Adresse d'Arrivée : <input type="text" name="arrivee" value="${adrArr}"/><br/>
                 Nombre de passager : <select name="nbPassager">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -54,7 +54,7 @@
                                      </select><br>
                 Email : <input type="text" name="emailConducteur" value="${utilConnecteP.mailPassager}"/><br/>
                 Tel : <input type="text" name="telConducteur" value="${utilConnecteP.telPassager}"/></br>
-                Prix de la courses : <input type="text" name="prix"/><br/>
+                Prix de la courses : <input type="text" name="prix" value="${total}"/><br/>
                 Choisissez votre mode de paiement : <select name="modePaiement">
                                                         <option value="CB">CB</option>
                                                         <option value="VISA">VISA</option>
