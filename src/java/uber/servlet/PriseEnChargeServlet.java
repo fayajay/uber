@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import uber.entity.Conducteur;
 import uber.entity.Historique;
+import uber.service.ConducteurService;
 import uber.service.HistoriqueService;
 
 
@@ -19,9 +21,22 @@ public class PriseEnChargeServlet extends HttpServlet {
         
         
         long idConducteur = Long.parseLong( req.getParameter("idConducteur") );
-        String nomConducteur = req.getParameter("nomConducteur") ;
+        
+        Conducteur c = new ConducteurService().rechercherConducteurParId(idConducteur);
+        float tarif = c.getPrixAuKm();
+        float dist = Float.parseFloat((String) req.getSession().getAttribute("distance"));
+        String adrDepart = (String) req.getSession().getAttribute("adrDep");
+        String adrArrivee = (String) req.getSession().getAttribute("adrArr");
+        
         req.setAttribute("idConducteur", idConducteur);
-        req.setAttribute("nomConducteur", nomConducteur);
+        req.setAttribute("nomConducteur", c.getLoginConducteur());
+        
+        // calcul total
+        tarif = tarif * dist/1000;
+        req.setAttribute("total", tarif);
+        
+        req.setAttribute("adrArr", adrArrivee);
+        req.setAttribute("adrDep", adrDepart);
         
         req.getRequestDispatcher("priseEnCharge.jsp").forward(req, resp);
     }
@@ -41,6 +56,7 @@ public class PriseEnChargeServlet extends HttpServlet {
         h.setModePaiement(req.getParameter("modePaiement"));
         
         HistoriqueService hs = new HistoriqueService(); 
+       
         
         hs.enregistrerHistorique(h);
         
