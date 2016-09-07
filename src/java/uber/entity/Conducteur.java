@@ -26,7 +26,8 @@ public class Conducteur implements Serializable {
     private float latitude;
     private float longitude;
     private float prixAuKm;
-
+    private String vehicule;
+    
     
     
     @OneToMany (mappedBy="conducteur")
@@ -38,6 +39,14 @@ public class Conducteur implements Serializable {
 
     // GETTER & SETTER
 
+    public String getVehicule() {
+        return vehicule;
+    }
+
+    public void setVehicule(String vehicule) {
+        this.vehicule = vehicule;
+    }
+    
     public float getPrixAuKm() {
         return prixAuKm;
     }
