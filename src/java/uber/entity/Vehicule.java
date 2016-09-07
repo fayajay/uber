@@ -26,7 +26,7 @@ public class Vehicule implements Serializable {
     
     private String typeVehicule;
 
-    @OneToOne
+    
     private Conducteur conducteur;
 
     public Conducteur getConducteur() {
