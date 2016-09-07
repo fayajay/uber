@@ -123,16 +123,25 @@ function success(pos) {
     maPosition.lng = pos.coords.longitude;
     map.setCenter(maPosition);
     map.setZoom(16);
+
+    var img ={
+                url: "css/images_2/drapeau_vert.png", // url
+                scaledSize: new google.maps.Size(50, 50), // scaled size
+                origin: new google.maps.Point(0, 0), // origin
+                anchor: new google.maps.Point(46, 50) // anchor
+            };
+
     //placement du marqueur
     var marqueur = new google.maps.Marker({
         position: maPosition,
         map: map,
         draggable: true,
-        title: 'Ma position'
+        title: 'Ma position',
+        icon: img
     });
-    
+
     setAdresseFromCoords(maPosition, "d");
-    
+
     marqueur.addListener('dragend', function () {
         maPosition.lat = marqueur.getPosition().lat();
         maPosition.lng = marqueur.getPosition().lng();
@@ -147,7 +156,7 @@ function success(pos) {
         infowindow.open(map, marqueur);
         //console.log(maPosition);
     });
-    
+
 }
 
 function error(err) {
@@ -178,23 +187,31 @@ function btArrivee(controlDiv, map) {
     controlUI.appendChild(controlText);
 
     // placer un marqueur d'arrivée au centre de la map quand on clique
-    controlUI.addEventListener('click', function () {        
+    controlUI.addEventListener('click', function () {
         controlUI.hidden = true;//caché le bouton pour éviter l'ajout de multiples marqueurs de fin
+        
+        var img ={
+                url: "css/images_2/drapeau_rose.png", // url
+                scaledSize: new google.maps.Size(50, 50), // scaled size
+                origin: new google.maps.Point(0, 0), // origin
+                anchor: new google.maps.Point(46, 50) // anchor
+            };
 
         var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers : true});
 
         var marqueur = new google.maps.Marker({
             position: map.getCenter(),
             map: map,
             draggable: true,
-            title: 'arrivee'
+            title: 'arrivee',
+            icon: img
         });
         var infowindow = new google.maps.InfoWindow();
-        
+
         calculEtAffichage();
-        
-        function calculEtAffichage(){
+
+        function calculEtAffichage() {
             directionsService.route({
                 origin: maPosition,
                 destination: marqueur.getPosition(),
@@ -216,14 +233,14 @@ function btArrivee(controlDiv, map) {
                 } else {
                     window.alert('Directions request failed due to ' + status);
                 }
-            });            
+            });
             setAdresseFromCoords(marqueur.getPosition(), "a");
-        }        
+        }
 
         //calculer et afficher le trajet quand on glisse le marqueur
         marqueur.addListener('dragend', function () {
             calculEtAffichage();
-            
+
         });
     });
 }
@@ -267,12 +284,12 @@ function setAdresseFromCoords(coords, depArr) {
         if (status === google.maps.GeocoderStatus.OK) {
             if (results[1]) {
                 adr = results[0].address_components[0].long_name + " " + results[0].address_components[1].long_name + " " + results[0].address_components[2].long_name;
-                
-                if(depArr == "d"){
+
+                if (depArr == "d") {
                     adrDep = adr;
-                }else if(depArr == "a"){
+                } else if (depArr == "a") {
                     adrArr = adr;
-                }                
+                }
 
             } else {
                 window.alert('No results found');
