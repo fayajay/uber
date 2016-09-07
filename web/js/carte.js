@@ -123,12 +123,15 @@ function success(pos) {
     maPosition.lng = pos.coords.longitude;
     map.setCenter(maPosition);
     map.setZoom(16);
+    
+    var img = 'css/images_2/drapeau_vert.png';
     //placement du marqueur
     var marqueur = new google.maps.Marker({
         position: maPosition,
         map: map,
         draggable: true,
-        title: 'Ma position'
+        title: 'Ma position',
+        icon: img
     });
     
     setAdresseFromCoords(maPosition, "d");
