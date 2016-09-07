@@ -32,6 +32,27 @@
                 Email : <input type="text" name="emailConducteur"/><br/>
                 Tel : <input type="text" name="telConducteur"/></br>
                 Immatriculation : <input type="text" name="immatConducteur"/></br>
+                Tarif au km : <input type="text" name="prixAuKm" /><br>
+                Type de véhicule :  <select name="vehicule">
+                                        <option value="Voiture">Voiture</option>
+                                        <option value="JetPack">JetPack</option>
+                                        <option value="Poney">Poney</option>
+                                        <option value="Caddie">Caddie</option>
+                                        <option value="2 Roues écolo">2 Roues écolo</option>
+                                        <option value="2 Roues poluant--------">2 Roues poluant</option>
+                                        <option value="Tracteur">Tracteur</option>
+                                        <option value="Soucoupe Volante">Soucoupe Volante</option>
+                                    </select>
+                Nombre de places :  <select name="nbPlaces">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select><br>
                 <input class="button_connexion" type="submit" value="Inscription"/>
                 <input class="button_reset" type="reset" value="Annuler"/>
             </form>

@@ -92,6 +92,18 @@ b {
     font-size: 1.2em;
     text-decoration: underline;
 }
+table {
+    border: 1px solid black;
+    margin: auto;
+    font-size: 2em;
+}
+tr, td, th {
+    border: 1px solid black;
+}
+td, th {
+    padding: 15px;
+}
+
   
 /* FORMULAIRE */
 

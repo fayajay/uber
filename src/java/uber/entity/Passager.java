@@ -25,16 +25,9 @@ public class Passager implements Serializable {
     private String telPassager;
     private int nbPassager;
     
-    @OneToOne
-    private Vehicule vehicule;
+    
 
-    public Vehicule getVehicule() {
-        return vehicule;
-    }
-
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
-    }
+    
     
     public int getNbPassager() {
         return nbPassager;

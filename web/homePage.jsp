@@ -41,9 +41,10 @@
                     <strong>${utilConnecteP.loginPassager}</strong>   
                 </c:when>
                 <c:when test="${utilConnecteC.loginConducteur!=null}">
-                    <a href="deconnexionConducteur">Déconnexion</a>
+                    <a class='right' href="deconnexionConducteur">Déconnexion</a>
+                    <a  href="map">Map</a>
                     <strong>${utilConnecteC.loginConducteur}</strong>
-                    <a href="map">Map</a>
+                    
                 </c:when>
             </c:choose>             
         </div>

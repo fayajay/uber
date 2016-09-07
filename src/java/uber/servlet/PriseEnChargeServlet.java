@@ -11,6 +11,7 @@ import uber.entity.Historique;
 import uber.entity.Passager;
 import uber.service.ConducteurService;
 import uber.service.HistoriqueService;
+import uber.service.PassagerService;
 
 
 @WebServlet(name = "PriseEnChargeServlet", urlPatterns = {"/prise_en_charge"})
@@ -29,7 +30,7 @@ public class PriseEnChargeServlet extends HttpServlet {
         String adrDepart = (String) req.getSession().getAttribute("adrDep");
         String adrArrivee = (String) req.getSession().getAttribute("adrArr");
         
-        req.setAttribute("idConducteur", idConducteur);
+        req.getSession().setAttribute("idConducteur", idConducteur);
         req.setAttribute("nomConducteur", c.getLoginConducteur());
         
         // calcul total
@@ -47,6 +48,7 @@ public class PriseEnChargeServlet extends HttpServlet {
         
         
         
+        
         Historique h = new Historique();
         
         
@@ -54,7 +56,8 @@ public class PriseEnChargeServlet extends HttpServlet {
         h.setArrivee(req.getParameter("arrivee"));
         h.setPrix(Float.parseFloat (req.getParameter("prix")));
         h.setNbPassager(Integer.parseInt (req.getParameter("nbPassager")));
-        h.setModePaiement(req.getParameter("modePaiement"));
+        h.setConducteur(new ConducteurService().rechercherConducteurParId((long) req.getSession().getAttribute("idConducteur")));
+        h.setPassager((Passager) req.getSession().getAttribute("utilConnecteP"));
         
         
         HistoriqueService hs = new HistoriqueService(); 
