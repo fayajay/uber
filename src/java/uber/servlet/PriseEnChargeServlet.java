@@ -56,6 +56,7 @@ public class PriseEnChargeServlet extends HttpServlet {
         h.setArrivee(req.getParameter("arrivee"));
         h.setPrix(Float.parseFloat (req.getParameter("prix")));
         h.setNbPassager(Integer.parseInt (req.getParameter("nbPassager")));
+        h.setModePaiement(req.getParameter("modePaiement"));
         h.setConducteur(new ConducteurService().rechercherConducteurParId((long) req.getSession().getAttribute("idConducteur")));
         h.setPassager((Passager) req.getSession().getAttribute("utilConnecteP"));
         

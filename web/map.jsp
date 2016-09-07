@@ -39,7 +39,7 @@
                 <c:when test="${utilConnecteC.loginConducteur!=null}">
                     <a class="modifier_profil_conducteur" href="modifier_profil_conducteur">Profil</a>
                     <strong>${utilConnecteC.loginConducteur}</strong>
-                    <a class="right" href="deconnexionPassager">Déconnexion</a>
+                    <a class="right" href="deconnexionConducteur">Déconnexion</a>
                 </c:when>
                     <c:otherwise>
                         <a href="#"></a>

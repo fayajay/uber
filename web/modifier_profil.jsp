@@ -43,28 +43,27 @@
         </div>
         <div id='historique'>
             <h4>Historique des trajets</h4>
-                <c:forEach items="${historique}" var="h">
-
                     <table>
-   <tr>
-       <th>DEPART</th>
-       <th>ARRIVEE</th>
-       <th>PRIX</th>
-       <th>MODE DE PAIEMENT</th>
-       <th>NOMBRE DE PASSAGER</th>
-       <th>CONDUCTEUR</th>
-   </tr>
-   <tr>
-       <td>${h.depart}</td>
-       <td>${h.arrivee}</td>
-       <td>${h.prix}$</td>
-       <td>${h.modePaiement}</td>
-       <td>${h.nbPassager}</td>
-       <td>${h.conducteur.loginConducteur}</td>
-       
-   </tr>
-</table>
-                </c:forEach>
+                        <tr>
+                            <th>DEPART</th>
+                            <th>ARRIVEE</th>
+                            <th>PRIX</th>
+                            <th>MODE DE PAIEMENT</th>
+                            <th>NOMBRE DE PASSAGER</th>
+                            <th>CONDUCTEUR</th>
+                        </tr>
+                        <c:forEach items="${historique}" var="h">
+                        <tr>
+                            <td>${h.depart}</td>
+                            <td>${h.arrivee}</td>
+                            <td>${h.prix}$</td>
+                            <td>${h.modePaiement}</td>
+                            <td>${h.nbPassager}</td>
+                            <td>${h.conducteur.loginConducteur}</td>  
+                        </tr>
+                        </c:forEach>
+                    </table>
+                        
         </div>
         <div id='profil'>
             <h4>Modifier votre profil</h4>
