@@ -27,6 +27,7 @@
             <c:choose>
                 <c:when test="${utilConnecteP.loginPassager!=null}">
                     <a class="right" href="deconnexionPassager">Déconnexion</a>
+                    <a class="lienMap" href="map">Map</a>
                     <strong>${utilConnecteP.loginPassager}</strong>
                 </c:when>
                 <c:when test="${utilConnecteC.loginConducteur!=null}">
@@ -37,7 +38,7 @@
                         <a href="#"></a>
                     </c:otherwise>
                 </c:choose>
-            <a class="lienMap" href="map">Map</a>
+            
             <div class="clear"></div>
         </div>
         <form method="POST">
