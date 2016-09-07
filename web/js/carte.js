@@ -12,11 +12,8 @@
  Instructions : - écouter "Svinkels - Bricolage" en lisant le js
  - obligatoirement(je crois) passer par un objet position comme suit : {lat: x, lng: y} pour les fonctions
  
- A faire : - nettoyage/opti
- - un fichier css pour resizer la map
+ A faire : 
  - modifier les marqueurs
- - tout
- - calculer tarif du trajet
  */
 
 
@@ -28,8 +25,8 @@ $(document).ready(function () {
         data: "",
         dataType: "html",
         success: function (data) {
-            console.log("données reçues");
-            console.log(data);
+            //console.log("données reçues");
+            //console.log(data);
             afficherChauffeurs(data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -77,8 +74,8 @@ function initMap() {
 
 function afficherChauffeurs(data) {
     var dpars = JSON.parse(data);
-    console.log("données parsées :");
-    console.log(dpars);
+    //console.log("données parsées :");
+    //console.log(dpars);
 
     $.each(dpars, function (index, value) {
 
@@ -98,14 +95,13 @@ function afficherChauffeurs(data) {
         var infowindow = new google.maps.InfoWindow({
             content: dpars[index].nom + ' ' + dpars[index].vehicule + ' ' + dpars[index].nbplaces + " places " + dpars[index].tarif + " €/km" +
                     '<br><a class="lien_map" href="prise_en_charge?idConducteur=' + dpars[index].id + '">Demande</a>'
-
         });
 
         //évenement : affichage de la fenetre d'info quand on clique sur le marqueur + envoi des infos
         marqueurChauffeur.addListener('click', function () {
             infowindow.open(map, marqueurChauffeur);
 
-            //envoie a une servlet les adresses de départ et arrivée car on ne peut le faire en (proprement) cookie
+            //envoie a une servlet les adresses de départ et arrivée car on ne peut le faire (proprement)en cookie
             $.ajax({
                 method: "POST",
                 url: "adresse",
@@ -117,17 +113,14 @@ function afficherChauffeurs(data) {
                     console.log(errorThrown.toString());
                 }
             });
-
         });
-
     });
 }
 ;
 
 function success(pos) {
-    var crd = pos.coords;
-    maPosition.lat = crd.latitude;
-    maPosition.lng = crd.longitude;
+    maPosition.lat = pos.coords.latitude;
+    maPosition.lng = pos.coords.longitude;
     map.setCenter(maPosition);
     map.setZoom(16);
     //placement du marqueur
@@ -137,24 +130,24 @@ function success(pos) {
         draggable: true,
         title: 'Ma position'
     });
+    
+    setAdresseFromCoords(maPosition, "d");
+    
     marqueur.addListener('dragend', function () {
         maPosition.lat = marqueur.getPosition().lat();
         maPosition.lng = marqueur.getPosition().lng();
         setAdresseFromCoords(maPosition, "d");
-        console.log("Nouvelle position : " + maPosition.lat + " " + maPosition.lng);
+        //console.log("Nouvelle position : " + maPosition.lat + " " + maPosition.lng);
     });
     //fenetre info
     var infowindow = new google.maps.InfoWindow({
-        content: maPosition.lat + " " + maPosition.lng
+        content: "Ma position"
     });
     marqueur.addListener('click', function () {
         infowindow.open(map, marqueur);
-        console.log(maPosition);
+        //console.log(maPosition);
     });
-    console.log('Your current position is:');
-    console.log('Latitude : ' + crd.latitude);
-    console.log('Longitude: ' + crd.longitude);
-    console.log('More or less ' + crd.accuracy + ' meters.');
+    
 }
 
 function error(err) {
@@ -185,7 +178,8 @@ function btArrivee(controlDiv, map) {
     controlUI.appendChild(controlText);
 
     // placer un marqueur d'arrivée au centre de la map quand on clique
-    controlUI.addEventListener('click', function () {
+    controlUI.addEventListener('click', function () {        
+        controlUI.hidden = true;//caché le bouton pour éviter l'ajout de multiples marqueurs de fin
 
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -197,9 +191,10 @@ function btArrivee(controlDiv, map) {
             title: 'arrivee'
         });
         var infowindow = new google.maps.InfoWindow();
-
-        //calculer et afficher le trajet quand on glisse le marqueur
-        marqueur.addListener('dragend', function () {
+        
+        calculEtAffichage();
+        
+        function calculEtAffichage(){
             directionsService.route({
                 origin: maPosition,
                 destination: marqueur.getPosition(),
@@ -215,23 +210,24 @@ function btArrivee(controlDiv, map) {
 
                     marqueur.addListener('click', function () {
                         infowindow.open(map, marqueur);
-
                     });
                     infowindow.open(map, marqueur); // ouverture par défaut de la fenetre d'info
-
-                    console.log(response.routes[0].legs[0].distance.value);
-
 
                 } else {
                     window.alert('Directions request failed due to ' + status);
                 }
-            });
+            });            
             setAdresseFromCoords(marqueur.getPosition(), "a");
+        }        
+
+        //calculer et afficher le trajet quand on glisse le marqueur
+        marqueur.addListener('dragend', function () {
+            calculEtAffichage();
+            
         });
     });
 }
 ;
-
 
 function btCentrage(controlDiv, map, pos) {
 // Set CSS for the control border.
@@ -263,6 +259,7 @@ function btCentrage(controlDiv, map, pos) {
 }
 ;
 
+//récupérer l'adresse depuis les coordonnées. 'a' pour l'adresse d'arrivée, 'd' pour celle de départ
 function setAdresseFromCoords(coords, depArr) {
     var geocoder = new google.maps.Geocoder;
     var adr;
@@ -275,8 +272,7 @@ function setAdresseFromCoords(coords, depArr) {
                     adrDep = adr;
                 }else if(depArr == "a"){
                     adrArr = adr;
-                }
-                
+                }                
 
             } else {
                 window.alert('No results found');
@@ -285,7 +281,6 @@ function setAdresseFromCoords(coords, depArr) {
             window.alert('Geocoder failed due to: ' + status);
         }
     });
-    console.log("sortie");
 }
 ;
 
