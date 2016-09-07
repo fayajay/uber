@@ -23,20 +23,11 @@ public class Conducteur implements Serializable {
     private String telConducteur;
     private String immatriculation;
     private int nbPlaces;
-    public TypeVehicule typeVehicule;
     private float latitude;
     private float longitude;
     private float prixAuKm;
 
-    public enum TypeVehicule {
-        VOITURE,
-        CAMION,
-        DEUX_ROUES_ECOLO,
-        DEUX_ROUES_MOTORISE,
-        CADDIE,
-        PONEY,
-        JETPACK;
-    }
+    
     
     @OneToMany (mappedBy="conducteur")
     private List<Historique> historiques = new ArrayList<Historique>();
@@ -113,14 +104,6 @@ public class Conducteur implements Serializable {
 
     public void setNbPlaces(int nbPlaces) {
         this.nbPlaces = nbPlaces;
-    }
-
-    public TypeVehicule getTypeVehicule() {
-        return typeVehicule;
-    }
-
-    public void setTypeVehicule(TypeVehicule typeVehicule) {
-        this.typeVehicule = typeVehicule;
     }
 
     public float getLatitude() {

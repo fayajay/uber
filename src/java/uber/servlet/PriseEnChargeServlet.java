@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import uber.entity.Conducteur;
 import uber.entity.Historique;
+import uber.entity.Passager;
 import uber.service.ConducteurService;
 import uber.service.HistoriqueService;
 
@@ -54,6 +55,7 @@ public class PriseEnChargeServlet extends HttpServlet {
         h.setPrix(Float.parseFloat (req.getParameter("prix")));
         h.setNbPassager(Integer.parseInt (req.getParameter("nbPassager")));
         h.setModePaiement(req.getParameter("modePaiement"));
+        
         
         HistoriqueService hs = new HistoriqueService(); 
        

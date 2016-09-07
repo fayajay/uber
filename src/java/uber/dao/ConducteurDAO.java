@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import uber.entity.Conducteur;
+import uber.entity.Vehicule;
 
 public class ConducteurDAO {
     
@@ -38,7 +39,7 @@ public class ConducteurDAO {
         return (Conducteur) query.getSingleResult();
     }
     
-    public List<Conducteur.TypeVehicule> listerVehicule() {
+    public List<Vehicule> listerVehicule() {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         return em.createQuery("SELECT c.typeVehicule FROM Conducteur c ").getResultList();     
     }

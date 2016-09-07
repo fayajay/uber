@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -22,18 +23,20 @@ public class Vehicule implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private TypeVehicule typeVehicule;
+    
+    private String typeVehicule;
 
-    public enum TypeVehicule {
-        VOITURE,
-        CAMION,
-        DEUX_ROUES_ECOLO,
-        DEUX_ROUES_MOTORISE,
-        CADDIE,
-        PONEY,
-        JETPACK;
+    @OneToOne
+    private Conducteur conducteur;
+
+    public Conducteur getConducteur() {
+        return conducteur;
     }
 
+    public void setConducteur(Conducteur conducteur) {
+        this.conducteur = conducteur;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -42,13 +45,15 @@ public class Vehicule implements Serializable {
         this.id = id;
     }
 
-    public TypeVehicule getTypeVehicule() {
+    public String getTypeVehicule() {
         return typeVehicule;
     }
 
-    public void setTypeVehicule(TypeVehicule typeVehicule) {
+    public void setTypeVehicule(String typeVehicule) {
         this.typeVehicule = typeVehicule;
     }
+
+    
 
     @Override
     public int hashCode() {

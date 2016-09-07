@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Passager implements Serializable {
@@ -23,7 +24,18 @@ public class Passager implements Serializable {
     private String mailPassager;
     private String telPassager;
     private int nbPassager;
+    
+    @OneToOne
+    private Vehicule vehicule;
 
+    public Vehicule getVehicule() {
+        return vehicule;
+    }
+
+    public void setVehicule(Vehicule vehicule) {
+        this.vehicule = vehicule;
+    }
+    
     public int getNbPassager() {
         return nbPassager;
     }
