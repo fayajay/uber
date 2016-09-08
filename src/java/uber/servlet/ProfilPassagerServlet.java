@@ -38,7 +38,7 @@ public class ProfilPassagerServlet extends HttpServlet {
         
         
         HistoriqueService hs = new HistoriqueService();
-        List<Historique> historique = hs.lister();
+        List<Historique> historique = hs.listerParPassagerId(p.getId());
         
         request.setAttribute("historique", historique);
         

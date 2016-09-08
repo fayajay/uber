@@ -16,9 +16,9 @@ import uber.entity.Historique;
  */
 public class HistoriqueDAO {
     
-    public List<Historique> lister() {
+    public List<Historique> listerParPassagerId(long id) {
     EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-    return em.createQuery("SELECT h FROM Historique h ").getResultList();
+    return em.createQuery("SELECT h FROM Historique h WHERE h.passager=:id").getResultList();
 }
         
 public void enregistrerHistorique (Historique h) {
