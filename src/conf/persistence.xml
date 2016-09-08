@@ -7,6 +7,7 @@
     <class>uber.entity.Historique</class>
     <class>uber.entity.TypeVehicule</class>
     <class>uber.entity.Vehicule</class>
+    <class>uber.entity.Reservation</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>

@@ -33,7 +33,7 @@ public class ConnexionConducteurServlet extends HttpServlet {
         req.getSession().setAttribute("utilConnecteC", c);
         
         
-        resp.sendRedirect("map");
+        resp.sendRedirect("attente");
  
     }
 }

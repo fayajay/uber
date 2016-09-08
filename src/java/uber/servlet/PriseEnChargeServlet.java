@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import uber.entity.Conducteur;
 import uber.entity.Historique;
 import uber.entity.Passager;
+import uber.entity.Reservation;
 import uber.service.ConducteurService;
 import uber.service.HistoriqueService;
 import uber.service.PassagerService;
+import uber.service.ReservationService;
 
 
 @WebServlet(name = "PriseEnChargeServlet", urlPatterns = {"/prise_en_charge"})
@@ -45,13 +47,9 @@ public class PriseEnChargeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
-        
-        
-        
+                
         Historique h = new Historique();
-        
-        
+                
         h.setDepart(req.getParameter("depart"));
         h.setArrivee(req.getParameter("arrivee"));
         h.setPrix(Float.parseFloat (req.getParameter("prix")));
@@ -61,10 +59,19 @@ public class PriseEnChargeServlet extends HttpServlet {
         h.setPassager((Passager) req.getSession().getAttribute("utilConnecteP"));
         
         
-        HistoriqueService hs = new HistoriqueService(); 
-       
-        
+        HistoriqueService hs = new HistoriqueService();      
         hs.enregistrerHistorique(h);
+        
+        Reservation r = new Reservation();
+        r.setAdrArr(h.getArrivee());
+        r.setAdrDep(h.getDepart());
+        r.setConducteurId(h.getConducteur().getId());
+        r.setPassagerId(h.getPassager().getId());
+        
+        ReservationService rs = new ReservationService();
+        rs.enregistrerReservation(r);
+        
+        
         
         resp.sendRedirect("paiement");
     }
