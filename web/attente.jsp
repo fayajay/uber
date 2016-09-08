@@ -12,11 +12,17 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>LE VIDE ABSOLU</h1>
-        néant void null
+        <h1>Demande</h1>        
         <div id="zone1">
             
         </div>
+        <br>
+        <input type="button" id="confirmer" value="Confirmer">
+        <input type="button" id="refuser" value="Refuser">
+        
+        <br>
+        <input type="button" id="finir" value="Course terminée">
+        
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 

@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import uber.entity.Conducteur;
+import uber.entity.Passager;
 import uber.entity.Reservation;
+import uber.service.PassagerService;
 import uber.service.ReservationService;
 
 /**
@@ -24,35 +26,48 @@ import uber.service.ReservationService;
  */
 @WebServlet(name = "AttenteServlet", urlPatterns = {"/attente"})
 public class AttenteServlet extends HttpServlet {
-
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-                
+        
         req.getRequestDispatcher("attente.jsp").forward(req, resp);
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();        
-        ReservationService rs = new ReservationService();
-        Conducteur c = (Conducteur) req.getSession().getAttribute("utilConnecteC");
-        Reservation r;
         
-        System.out.println("/**************");
-        System.out.println(rs.rechercherReservationParConducteurId(c.getId()));
-        while(rs.rechercherReservationParConducteurId(c.getId()).getConducteurId() != c.getId()){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(AttenteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        r = rs.rechercherReservationParConducteurId(c.getId());
-        
-        out.print(r);
-        out.close();
     }
     
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
+        ReservationService rs = new ReservationService();
+        Conducteur c = (Conducteur) req.getSession().getAttribute("utilConnecteC");
+        Passager p;
+        Reservation r = rs.rechercherReservationParConducteurId(c.getId());
+        
+        if (req.getParameter("param")=="rechercher") {            
+           
+            
+            p = new PassagerService().rechercherPassagerParId(r.getPassagerId());
+            
+            String str = "";//début du tableau d'objets json
+
+            str += "{";//nouvel objet json
+
+            //*****JSON A LA MAIN *****
+            str += "\"id\":\"" + r.getId() + "\",";
+            str += "\"nom\":\"" + p.getLoginPassager() + "\",";
+            str += "\"adrArr\":\"" + r.getAdrArr() + "\",";
+            str += "\"adrDep\":\"" + r.getAdrDep() + "\"";
+            
+            str += "}";//fin d'objet + virgule de séparation
+
+            out.print(str);    
+            System.out.println("/***************");
+            System.out.println("envoi");
+        } else if (req.getParameter("param")=="annuler") {
+            System.out.println("/***************");
+            System.out.println("del");
+            rs.supprimerReservation(r);
+        }
+        out.close();
+    }
     
 }

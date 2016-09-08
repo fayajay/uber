@@ -36,7 +36,7 @@ public class ReservationDAO {
     public void supprimerReservation(Reservation r) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();
-        em.remove(r);
+        em.remove(r);        
         em.getTransaction().commit();
     }
 
