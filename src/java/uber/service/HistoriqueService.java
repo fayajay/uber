@@ -14,8 +14,8 @@ import uber.entity.Historique;
  * @author cherg
  */
 public class HistoriqueService {
-    public List<Historique> lister() {
-        return new HistoriqueDAO().lister();
+    public List<Historique> listerParPassagerId(long id) {
+        return new HistoriqueDAO().listerParPassagerId(id);
     }
     
     public void enregistrerHistorique(Historique h) {
