@@ -42,8 +42,8 @@ public class MapServlet extends HttpServlet {
             str += "\"lat\":\"" + c.getLatitude() + "\",";
             str += "\"lng\":\"" + c.getLongitude() + "\",";
             str += "\"nbplaces\":\"" + c.getNbPlaces() + "\",";
-            str += "\"tarif\":\"" + c.getPrixAuKm() + "\"";
-           // str += "\"vehicule\":\"" + c.getTypeVehicule() + "\"";
+            str += "\"tarif\":\"" + c.getPrixAuKm() + "\",";
+            str += "\"vehicule\":\"" + c.getVehicule() + "\"";
             
             str += "},";//fin d'objet + virgule de séparation
         }
