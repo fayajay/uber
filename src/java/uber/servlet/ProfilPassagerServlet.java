@@ -34,7 +34,7 @@ public class ProfilPassagerServlet extends HttpServlet {
         
         //1 je recup les id passager en sission web
         
-        Passager p = (Passager) request.getSession().getAttribute("utilConnecte");
+        Passager p = (Passager) request.getSession().getAttribute("utilConnecteP");
         
         
         HistoriqueService hs = new HistoriqueService();

@@ -14,5 +14,13 @@
     <body>
         <h1>LE VIDE ABSOLU</h1>
         néant void null
+        <div id="zone1">
+            
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+        <script type="text/javascript" src="js/attente.js"></script>
+
     </body>
 </html>

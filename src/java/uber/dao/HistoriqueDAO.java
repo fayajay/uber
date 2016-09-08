@@ -18,7 +18,7 @@ public class HistoriqueDAO {
     
     public List<Historique> listerParPassagerId(long id) {
     EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
-    return em.createQuery("SELECT h FROM Historique h WHERE h.passager=:id").getResultList();
+    return em.createQuery("SELECT h FROM Historique h WHERE h.passager.id=:pid").setParameter("pid", id).getResultList();
 }
         
 public void enregistrerHistorique (Historique h) {
