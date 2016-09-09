@@ -7,9 +7,9 @@
         <link href='https://fonts.googleapis.com/css?family=Faster+One|Annie+Use+Your+Telescope' rel='stylesheet' type='text/css'>
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <title>Map</title>
-        <style type="text/css">
+       <style type="text/css">
             html, body { height: 100%; margin: 0; padding: 0; }
-            #map { height: 100%; }
+                #map { height: 100%; }
         </style>
     </head>
     <body>
