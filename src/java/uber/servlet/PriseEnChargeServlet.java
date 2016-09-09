@@ -67,6 +67,7 @@ public class PriseEnChargeServlet extends HttpServlet {
         r.setAdrDep(h.getDepart());
         r.setConducteurId(h.getConducteur().getId());
         r.setPassagerId(h.getPassager().getId());
+        r.setEtat(false);
         
         ReservationService rs = new ReservationService();
         rs.enregistrerReservation(r);

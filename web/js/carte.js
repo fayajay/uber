@@ -84,12 +84,31 @@ function afficherChauffeurs(data) {
             lat: parseFloat(dpars[index].lat),
             lng: parseFloat(dpars[index].lng)
         };
+        var str1 ="";
+        if(dpars[index].vehicule == "CADDIE"){
+                    str1 = "css/images_2/caddie.png";
+                }else if(dpars[index].vehicule == "PONEY"){
+                    str1 = "css/images_2/cheval.png";
+                }else if(dpars[index].vehicule == "Soucoupe Volante"){
+                    str1 = "css/images_2/ovni.png";
+                }else{
+                    str1 = "css/images_2/vv.png";
+                }
+        
+        
+        var img ={          
+                url: str1, // url
+                scaledSize: new google.maps.Size(50, 50), // scaled size
+                origin: new google.maps.Point(0, 0), // origin
+                anchor: new google.maps.Point(46, 50) // anchor
+            };
 
         //placement du marqueur
         var marqueurChauffeur = new google.maps.Marker({
             position: posch,
             map: map,
-            title: dpars[index].nom + ""
+            title: dpars[index].nom + "",
+            icon: img
         });
         //fenetre info
         var infowindow = new google.maps.InfoWindow({

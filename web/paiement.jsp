@@ -43,7 +43,7 @@
         </div>
         <form method="POST">
             Veuillez valider votre paiement<br>
-                <input class="button_connexion" type="submit" value="paiement"/>
+                <input class="button_connexion" type="submit" id="bt" value="paiement"/>
                 <input class="button_reset" type="reset" value="annuler"/>
         </form>
         <center id="image">         
@@ -51,5 +51,10 @@
             <img id="img" src="css/images_2/caddie.png" width="150px" alt="150px" />
             <img id="img" src="css/images_2/fusee.png" width="150px" alt="150px" />
         </center>
+        
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+        <script type="text/javascript" src="js/attente.js"></script>
     </body>
 </html>
