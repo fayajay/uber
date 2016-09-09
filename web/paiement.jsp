@@ -42,7 +42,7 @@
             <div class="clear"></div>
         </div>
         <form method="POST">
-                Vous avez choisi de payer en ...., la somme de ....
+            Veuillez valider votre paiement<br>
                 <input class="button_connexion" type="submit" value="paiement"/>
                 <input class="button_reset" type="reset" value="annuler"/>
         </form>
