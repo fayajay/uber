@@ -39,6 +39,11 @@ public class ReservationDAO {
         em.remove(r);        
         em.getTransaction().commit();
     }
+    
+    public void supprimerReservationByConducteurId(long id) {
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        em.createQuery("DELETE FROM Reservation r WHERE r.conducteurId=:id").setParameter("id", id);        
+    }
 
     public Reservation getReservationById(long id) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();

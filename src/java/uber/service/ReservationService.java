@@ -32,6 +32,10 @@ public class ReservationService {
     public void supprimerReservation(Reservation r) {
         new ReservationDAO().supprimerReservation(r);
     }
+    
+    public void supprimerReservationByConducteurId(long id){
+        new ReservationDAO().supprimerReservationByConducteurId(id);
+    }
 
     public Reservation getReservationById(long id) {
         return new ReservationDAO().getReservationById(id);

@@ -42,7 +42,7 @@ public class AttenteServlet extends HttpServlet {
         Passager p;
         Reservation r = rs.rechercherReservationParConducteurId(c.getId());
         
-        if (req.getParameter("param")=="rechercher") {            
+                 
            
             
             p = new PassagerService().rechercherPassagerParId(r.getPassagerId());
@@ -59,14 +59,10 @@ public class AttenteServlet extends HttpServlet {
             
             str += "}";//fin d'objet + virgule de séparation
 
-            out.print(str);    
-            System.out.println("/***************");
-            System.out.println("envoi");
-        } else if (req.getParameter("param")=="annuler") {
-            System.out.println("/***************");
-            System.out.println("del");
-            rs.supprimerReservation(r);
-        }
+            out.print(str);
+       
+            
+        
         out.close();
     }
     

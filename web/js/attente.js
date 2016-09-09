@@ -18,7 +18,7 @@ function appeljajax() {
     $.ajax({
         method: "POST",
         url: "attente",
-        data: {"param":"rechercher"},
+        data: "",
         dataType: "html",
         success: function (data) {
             afficher(data);
@@ -64,8 +64,8 @@ function afficher(data) {
 function supprimerCourse(){
     $.ajax({
         method: "POST",
-        url: "attente",
-        data: {"param":"annuler"},
+        url: "/suppr_res",
+        data: "",
         dataType: "html",
         success: function (data) {
             console.log("suppr")

@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import uber.entity.Conducteur;
+import uber.entity.Reservation;
 import uber.service.ConducteurService;
+import uber.service.ReservationService;
 
 
 @WebServlet(name = "ConnexionConducteurServlet", urlPatterns = {"/connexion_conducteur"})
@@ -31,6 +33,11 @@ public class ConnexionConducteurServlet extends HttpServlet {
         
         // je suis logué correctement = session
         req.getSession().setAttribute("utilConnecteC", c);
+        
+        
+        //supprimer les éventuelles réservations précédentes
+        ReservationService rs = new ReservationService();        
+        rs.supprimerReservationByConducteurId(c.getId());
         
         
         resp.sendRedirect("attente");
